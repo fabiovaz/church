@@ -3,7 +3,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'frontend',
+    title: 'Templo do Rio de Janeiro',
     htmlAttrs: {
       lang: 'pt-br'
     },
