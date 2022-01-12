@@ -32,13 +32,18 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/google-analytics'
   ],
 
   googleFonts: {
     families: {
       Roboto: [400, 800]
     }
+  },
+
+  googleAnalytics: {
+    id: 'UA-3616582-11'
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
