@@ -3,14 +3,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Templo do Rio de Janeiro',
+    title: 'Templo do Rio de Janeiro - Save the Date',
     htmlAttrs: {
       lang: 'pt-br'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: '22 a 25 de março de 2022. Em breve, você poderá agendar a sua visita neste site.' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
