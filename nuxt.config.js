@@ -14,7 +14,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' }
     ]
 },
@@ -38,7 +38,8 @@ export default {
 
   googleFonts: {
     families: {
-      Roboto: [400, 800]
+      'Playfair+Display': [400, 700],
+      Lato: [400]
     }
   },
 
