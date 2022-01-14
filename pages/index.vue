@@ -1,27 +1,29 @@
 <template>
   <main>
     <div class="landing">
-      <div class="row g-0">
-        <div class="col-md-6">
-          <div class="cover">
-            <img src="~assets/img/cover.jpg" />
+      <div class="container-full">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <div class="cover">
+              <img src="~assets/img/cover.jpg" />
+            </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="content d-flex flex-column justify-content-around h-100 py-3">
-            <h3 class="my-3">TEMPLO DO RIO DE JANEIRO</h3>
-            <div class="callout mx-auto">
-              <h2>SAVE THE DATE</h2>
-              <h5>22 a 25 de MARÇO de 2022</h5>
-            </div>
-            <div class="row justify-content-center my-3">
-              <div class="col-6">
-                <p>Em breve, você poderá agendar a sua visita neste site.</p>
+          <div class="col-md-6">
+            <div class="content d-flex flex-column justify-content-around h-100 py-3">
+              <h3 class="my-3">TEMPLO DO RIO DE JANEIRO</h3>
+              <div class="callout mx-auto">
+                <h2>SAVE THE DATE</h2>
+                <h5>22 a 25 de MARÇO de 2022</h5>
               </div>
-            </div>
-            <div class="footer my-3">
-              <h6>Presidência da Área Brasil</h6>
-              <h6 class="small">A Igreja de Jesus Cristo dos Santos dos Últimos Dias</h6>
+              <div class="row gx-0 justify-content-center my-3">
+                <div class="col-6">
+                  <p>Em breve, você poderá agendar a sua visita neste site.</p>
+                </div>
+              </div>
+              <div class="footer my-3">
+                <h6>Presidência da Área Brasil</h6>
+                <h6 class="small">A Igreja de Jesus Cristo dos Santos dos Últimos Dias</h6>
+              </div>
             </div>
           </div>
         </div>
