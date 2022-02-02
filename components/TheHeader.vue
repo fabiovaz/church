@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ scrolled: scrolled }">
     <div class="container">
       <div class="row">
         <div class="col">
@@ -53,8 +53,28 @@
   </header>
 </template>
 
+<script>
+export default {
+  data () {
+    return {
+      scrolled: false
+    }
+  },
+  mounted () {
+    window.document.onscroll = () => {
+      if (window.scrollY > 0) {
+        this.scrolled = true;
+      } else {
+        this.scrolled = false;
+      }
+    }
+  }
+}
+</script>
+
 <style lang="scss">
   header {
+    z-index: 50;
     position: fixed;
     top: 0;
     left: 0;
@@ -62,6 +82,7 @@
     nav {
       ul {
         display: flex;
+        margin: 0;
         padding: 0;
         list-style: none;
         align-items: center;
@@ -81,6 +102,27 @@
       .button {
         padding: 15px 20px;
         background: #003058;
+      }
+    }
+    &.scrolled {
+      height: 80px;
+      background: #FFF;
+      box-shadow: 0px 4px 40px rgb(0 0 0 / 5%);    
+      nav {
+        ul {
+          li {
+            margin-top: -40px;
+            &:first-child, &:last-child {
+              margin-top: 0;
+            }
+            a {
+              color: #000;
+              &.button {
+                color: #FFF;
+              }
+            }
+          }
+        }
       }
     }
   }

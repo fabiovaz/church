@@ -65,50 +65,50 @@
           </div>
           <div class="col-md-6">
             <div class="row">
-              <div class="col-md-4">
-                img 1
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_1.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 2
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_2.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 3
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_3.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 4
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_4.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 5
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_5.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 6
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_6.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 7
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_7.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 8
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_8.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 9
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_9.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 10
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_10.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 11
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_11.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 12
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_12.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 13
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_13.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 14
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_14.jpg" class="w-100" />
               </div>
-              <div class="col-md-4">
-                img 15
+              <div class="col-md-4 mb-4">
+                <img src="~/assets/img/templo_15.jpg" class="w-100" />
               </div>
             </div>
           </div>
@@ -123,8 +123,14 @@
             <h2>Brasil - Fatos e Estatísticas</h2>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <img src="~/assets/img/estatisticas_1.jpg" class="w-100" />
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <img src="~/assets/img/estatisticas_2.jpg" class="w-100" />
           </div>
         </div>
       </div>
@@ -270,12 +276,13 @@
             <p>O Templo do Rio da Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visitação completa, selecione data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
           </div>
           <div class="col-md-6">
-            <CardSchedule />
-            <CardSchedule />
-            <CardSchedule />
-            <CardSchedule />
-            <CardSchedule />
-            <CardSchedule />
+            <CardSchedule :date="'2022-03-22 09:00'" />
+            <CardSchedule :date="'2022-03-22 09:15'" />
+            <CardSchedule :date="'2022-03-22 09:30'" />
+            <CardSchedule :date="'2022-03-22 09:45'" />
+            <CardSchedule :date="'2022-03-22 10:00'" />
+            <CardSchedule :date="'2022-03-22 10:15'" />
+            <CardSchedule :date="'2022-03-22 10:30'" />
           </div>
         </div>
       </div>

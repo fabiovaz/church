@@ -53,12 +53,23 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/dayjs'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
+  },
+
+  dayjs: {
+    locales: ['pt-br'],
+    defaultLocale: 'pt-br',
+    defaultTimeZone: 'America/Sao_Paulo',
+    plugins: [
+      'utc', // import 'dayjs/plugin/utc'
+      'timezone' // import 'dayjs/plugin/timezone'
+    ]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

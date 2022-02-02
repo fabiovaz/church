@@ -2,20 +2,20 @@
   <div class="card-schedule">
     <div class="date">
       <div class="date__weekday">
-        SEG
+        {{ $dayjs(date).format('ddd') }}
       </div>
       <div class="date__calendar">
         <div class="date__day">
-          22
+          {{ $dayjs(date).format('DD') }}
         </div>
         <div class="date__month">
-          MAR
+          {{ $dayjs(date).format('MMM') }}
         </div>
       </div>
     </div>
     <div class="body">
       <div class="body__title">
-        08:20
+        {{ $dayjs(date).format('HH:mm') }}
       </div>
       <div class="body__description">
         <strong>42</strong> vagas disponiveis
@@ -31,7 +31,13 @@
 
 <script>
 export default {
-  name: 'CardSchedule'
+  name: 'CardSchedule',
+  props: {
+    date: {
+      type: String,
+      default: null
+    }
+  }
 }
 </script>
 
@@ -46,6 +52,7 @@ export default {
       &__weekday {
         font-size: 14px;
         line-height: 1;
+        text-transform: uppercase;
       }
       &__calendar {
         margin-top: 12px;
@@ -56,6 +63,7 @@ export default {
         font-size: 32px;
         line-height: 1;
         font-weight: 800;
+        text-transform: uppercase;
       }
       &__month {
         margin-left: 8px;
