@@ -271,18 +271,75 @@
             <h2>Agendar Visita</h2>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <p>O Templo do Rio da Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visitação completa, selecione data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
+        {{ currentStep }}
+        <div v-if="currentStep === 1" class="step1">
+          <div class="row">
+            <div class="col-md-6">
+              <p>O Templo do Rio da Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visitação completa, selecione data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
+            </div>
+            <div class="col-md-6">
+              <CardSchedule :date="'2022-03-22'" :spots="722" @click.native="currentStep = 2" />
+              <CardSchedule :date="'2022-03-23'" :spots="1400" @click.native="currentStep = 2" />
+              <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="currentStep = 2" />
+              <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="currentStep = 2" />
+            </div>
           </div>
-          <div class="col-md-6">
-            <CardSchedule :date="'2022-03-22 09:00'" />
-            <CardSchedule :date="'2022-03-22 09:15'" />
-            <CardSchedule :date="'2022-03-22 09:30'" />
-            <CardSchedule :date="'2022-03-22 09:45'" />
-            <CardSchedule :date="'2022-03-22 10:00'" />
-            <CardSchedule :date="'2022-03-22 10:15'" />
-            <CardSchedule :date="'2022-03-22 10:30'" />
+        </div>
+        <div v-if="currentStep === 2" class="step2">
+          <div class="row">
+            <div class="col-md-6">
+              <CardSchedule :date="'2022-03-23 09:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 09:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 09:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 09:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 10:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 10:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 10:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 10:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 11:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 11:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 11:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 11:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 12:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 12:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 12:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 12:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 13:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 13:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 13:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 13:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 14:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 14:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 14:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 14:45'" :spots="60" />
+            </div>
+            <div class="col-md-6">
+              <CardSchedule :date="'2022-03-23 15:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 15:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 15:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 15:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 16:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 16:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 16:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 16:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 17:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 17:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 17:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 17:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 18:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 18:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 18:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 18:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 19:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 19:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 19:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 19:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 20:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 20:15'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 20:30'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 20:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 21:00'" :spots="60" />
+            </div>
           </div>
         </div>
       </div>
@@ -296,6 +353,7 @@ export default {
   name: 'IndexPage',
   data () {
     return {
+      currentStep: 1,
       flickityOptions: {
         pageDots: false,
         contain: true,
@@ -367,7 +425,7 @@ main {
       width: 100%;
       max-width: 730px;
       background: #FFF;
-      box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05); 
+      box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);
     }
   }
 

@@ -14,11 +14,11 @@
       </div>
     </div>
     <div class="body">
-      <div class="body__title">
+      <div v-if="$dayjs(date).format('HH') != '00'" class="body__title">
         {{ $dayjs(date).format('HH:mm') }}
       </div>
       <div class="body__description">
-        <strong>42</strong> vagas disponiveis
+        <strong>{{ spots }}</strong> vagas disponiveis
       </div>
     </div>
     <div class="action">
@@ -36,6 +36,10 @@ export default {
     date: {
       type: String,
       default: null
+    },
+    spots: {
+      type: Number,
+      default: null
     }
   }
 }
@@ -43,6 +47,7 @@ export default {
 
 <style lang="scss">
   .card-schedule {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
