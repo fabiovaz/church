@@ -271,7 +271,6 @@
             <h2>Agendar Visita</h2>
           </div>
         </div>
-        {{ currentStep }}
         <div v-if="currentStep === 1" class="step1">
           <div class="row">
             <div class="col-md-6">
@@ -286,8 +285,8 @@
           </div>
         </div>
         <div v-if="currentStep === 2" class="step2">
-          <div class="row">
-            <div class="col-md-6">
+          <div class="row justify-content-around">
+            <div class="col-md-5">
               <CardSchedule :date="'2022-03-23 09:00'" :spots="60" />
               <CardSchedule :date="'2022-03-23 09:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 09:30'" :spots="60" />
@@ -313,7 +312,7 @@
               <CardSchedule :date="'2022-03-23 14:30'" :spots="60" />
               <CardSchedule :date="'2022-03-23 14:45'" :spots="60" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
               <CardSchedule :date="'2022-03-23 15:00'" :spots="60" />
               <CardSchedule :date="'2022-03-23 15:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 15:30'" :spots="60" />
