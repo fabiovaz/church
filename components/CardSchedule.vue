@@ -86,7 +86,7 @@ export default {
       }
     }
     &:hover {
-      background: #E7E7E7;
+      background: #F9F9F9;
     }
   }
 </style>

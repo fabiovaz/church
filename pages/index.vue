@@ -116,87 +116,89 @@
             <h2>Perguntas Frequentes</h2>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
             <accordion>
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>Não sou membro da Igreja. Ainda posso vir?</h3>
+                  <h5>Não sou membro da Igreja. Ainda posso vir?</h5>
                 </template>
                 <template #accordion-content>
-                  <span>Em absoluto! Todos são bem-vindos para frequentar nossos eventos e serviços de adoração. Pedimos que todos os presentes usem linguagem apropriada e tratem a todos com respeito. Somos Cristãos que fazemos nosso melhor para seguir os mandamentos e ensinamentos de Cristo. Qualquer que seja sua crença ou orientação religiosa, ou mesmo se não tiver uma crença religiosa, você está convidado a unir-se a nós!</span>
+                  <p>Em absoluto! Todos são bem-vindos para frequentar nossos eventos e serviços de adoração. Pedimos que todos os presentes usem linguagem apropriada e tratem a todos com respeito. Somos Cristãos que fazemos nosso melhor para seguir os mandamentos e ensinamentos de Cristo. Qualquer que seja sua crença ou orientação religiosa, ou mesmo se não tiver uma crença religiosa, você está convidado a unir-se a nós!</p>
                 </template>
               </accordion-item>
 
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>Quantas crianças posso trazer?</h3>
+                  <h5>Quantas crianças posso trazer?</h5>
                 </template>
                 <template #accordion-content>
-                  <span>Traga todos seus filhos. Todos são bem-vindos.</span>
+                  <p>Traga todos seus filhos. Todos são bem-vindos.</p>
                 </template>
               </accordion-item>
 
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>E se eu tiver mais de 10 pessoas no meu grupo? </h3>
+                  <h5>E se eu tiver mais de 10 pessoas no meu grupo? </h5>
                 </template>
                 <template #accordion-content>
-                  <span>Faça a confirmação da visita, dia e horário.</span>
+                  <p>Faça a confirmação da visita, dia e horário.</p>
                 </template>
               </accordion-item>
 
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>Posso voltar e reservar outros dias? </h3>
+                  <h5>Posso voltar e reservar outros dias? </h5>
                 </template>
                 <template #accordion-content>
-                  <span>Sim, se desejar voltar a visitar o Templo e trazer amigos e familiares, agende outro dia, será um prazer recebê-los novamente.  </span>
+                  <p>Sim, se desejar voltar a visitar o Templo e trazer amigos e familiares, agende outro dia, será um prazer recebê-los novamente.  </p>
                 </template>
               </accordion-item>
 
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>Como cancelo minha visita?</h3>
+                  <h5>Como cancelo minha visita?</h5>
                 </template>
                 <template #accordion-content>
-                  <span>Entre em contato pelo telefone (11) 97651-9201 (WhatsApp)</span>
+                  <p>Entre em contato pelo telefone (11) 97651-9201 (WhatsApp)</p>
                 </template>
               </accordion-item>
 
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>Posso usar um carrinho de bebê no tour?</h3>
+                  <h5>Posso usar um carrinho de bebê no tour?</h5>
                 </template>
                 <template #accordion-content>
-                  <span>Há escadas e múltiplas mudanças de elevação envolvendo dois ou mais degraus no transcorrer do tour. Crianças de colo precisarão ser carregadas.</span>
+                  <p>Há escadas e múltiplas mudanças de elevação envolvendo dois ou mais degraus no transcorrer do tour. Crianças de colo precisarão ser carregadas.</p>
                 </template>
               </accordion-item>
 
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>Poderei usar uma cadeira de rodas elétrica? </h3>
+                  <h5>Poderei usar uma cadeira de rodas elétrica? </h5>
                 </template>
                 <template #accordion-content>
-                  <span>Há áreas do tour que não são acessíveis a cadeiras de rodas elétricas. No entanto, haverá cadeiras de rodas não elétricas e ajudantes para dar assistência aos visitantes durante todo o tour do Templo.</span>
+                  <p>Há áreas do tour que não são acessíveis a cadeiras de rodas elétricas. No entanto, haverá cadeiras de rodas não elétricas e ajudantes para dar assistência aos visitantes durante todo o tour do Templo.</p>
                 </template>
               </accordion-item>
 
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>Não recebi meu e-mail de confirmação com meus ingressos. Que devo fazer?</h3>
+                  <h5>Não recebi meu e-mail de confirmação com meus ingressos. Que devo fazer?</h5>
                 </template>
                 <template #accordion-content>
-                  <span>Há duas razões pelas quais você não tenha recebido seu e-mail de confirmação: 1.) O e-mail foi para sua caixa de SPAM. Por favor verifique esses arquivos de e-mail e procure por um e-mail de “Confirmação de Agendamento”. 2.) Foi colocado endereço de e-mail errado no pedido. Por favor mande por e-mail o primeiro nome e sobrenome que você usou para reservar os ingressos e o endereço de e-mail correto para templodoriodejaneiro@gmail.com -  tentaremos achar seu pedido e reenviar os ingressos. </span>
+                  <p>Há duas razões pelas quais você não tenha recebido seu e-mail de confirmação:</p>
+                  <p>1.) O e-mail foi para sua caixa de SPAM. Por favor verifique esses arquivos de e-mail e procure por um e-mail de “Confirmação de Agendamento”.</p>
+                  <p>2.) Foi colocado endereço de e-mail errado no pedido. Por favor mande por e-mail o primeiro nome e sobrenome que você usou para reservar os ingressos e o endereço de e-mail correto para <a href="mailto:templodoriodejaneiro@gmail.com">templodoriodejaneiro@gmail.com</a> - tentaremos achar seu pedido e reenviar os ingressos. </p>
                 </template>
               </accordion-item>
 
               <accordion-item>
                 <template #accordion-trigger>
-                  <h3>Haverá estacionamento no local?</h3>
+                  <h5>Haverá estacionamento no local?</h5>
                 </template>
                 <template #accordion-content>
-                  <span>Sim, há estacionamento no local e pessoas capacitadas irão orientá-los na chegada.</span>
+                  <p>Sim, há estacionamento no local e pessoas capacitadas irão orientá-los na chegada.</p>
                 </template>
               </accordion-item>
             </accordion>
@@ -204,7 +206,6 @@
         </div>
       </div>
     </div>
-
     <div class="agenda">
       <div class="container">
         <div class="row">
@@ -229,59 +230,93 @@
         <div v-if="currentStep === 2" class="step2">
           <div class="row justify-content-around">
             <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 09:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 09:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 09:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 09:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 10:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 10:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 10:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 10:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 11:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 11:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 11:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 11:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 12:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 12:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 12:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 12:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 09:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 09:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 09:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 09:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 10:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 10:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 10:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 10:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 11:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 11:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 11:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 11:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 12:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 12:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 12:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 12:45'" :spots="60" @click.native="currentStep = 3" />
             </div>
             <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 13:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 13:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 13:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 13:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 14:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 14:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 14:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 14:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 15:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 15:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 15:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 15:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 16:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 16:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 16:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 16:45'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 13:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 13:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 13:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 13:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 14:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 14:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 14:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 14:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 15:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 15:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 15:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 15:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 16:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 16:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 16:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 16:45'" :spots="60" @click.native="currentStep = 3" />
             </div>
             <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 17:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 17:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 17:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 17:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 18:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 18:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 18:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 18:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 19:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 19:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 19:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 19:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 20:00'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 20:15'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 20:30'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 20:45'" :spots="60" />
-              <CardSchedule :date="'2022-03-23 21:00'" :spots="60" />
+              <CardSchedule :date="'2022-03-23 17:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 17:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 17:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 17:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 18:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 18:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 18:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 18:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 19:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 19:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 19:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 19:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 20:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 20:15'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 20:30'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 20:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 21:00'" :spots="60" @click.native="currentStep = 3" />
+            </div>
+          </div>
+        </div>
+        <div v-if="currentStep === 3" class="step3">
+          <div class="row">
+            <div class="col text-center">
+              <p>Por favor preencha os dados para completar a requisição.</p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-4">
+              <form>
+                <div class="mb-3">
+                  <label for="inputName" class="form-label">Seu nome</label>
+                  <input id="inputName" type="name"  class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label for="inputEmail" class="form-label">Seu e-mail</label>
+                  <input id="inputEmail" type="email" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label for="inputTelephone" class="form-label">Seu telefone</label>
+                  <input id="inputTelephone"  type="telephone" class="form-control">
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="button">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.99984 8.00008H2.6665M7.99984 13.3334V8.00008V13.3334ZM7.99984 8.00008V2.66675V8.00008ZM7.99984 8.00008H13.3332H7.99984Z" stroke="#003058" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Adicionar convidado
+                  </div>
+                  <button type="submit" class="btn">Agendar</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -303,6 +338,7 @@ export default {
   data () {
     return {
       currentStep: 1,
+      schedule: [],
       gallery: {
         items: [
           '/img/001db7326e638032470a02813c9e47191ef74b0e.jpg',
@@ -329,19 +365,17 @@ export default {
           '/img/c9df17c8040f21776c108365ff9f61098302aa63.jpg'
         ],
         index: null
-      },
-      flickityOptions: {
-        pageDots: false,
-        contain: true,
-        lazyLoad: 3,
-        cellSelector: '.carousel-card'
       }
     }
   },
+  created () {
+    this.fetchSchedule()
+  },
   methods: {
-    imgsLoaded () {
-      const flickityInstance = this.$refs.flickity
-      flickityInstance.reloadCells()
+    async fetchSchedule() {
+      this.$axios.setToken('21036055982e4f2a27c7a06f73ae7b78c4c0660b89c0d3646072ae266817d0a2bc4ed5bbc215c922af62c3db2174197a7e8b261a1e49d3f6e0169f34601663b7de1acf9d6504ce95cde77e55f03b3125c8fe665cbcb03fa1034d7e6cc2c07bc2f2d9ce29aa564f76259d5362dddc8776a3b4b3f322e9c334082c3b13f53d320e', 'Bearer')
+      const schedule = await this.$axios.$get('/agendas')
+      this.schedule = schedule
     }
   }
 }
@@ -420,6 +454,16 @@ main {
 
   .agenda {
     padding: 50px 0;
+    form {
+      .button {}
+      button.btn {
+        padding: 15px 20px;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #FFF;
+        background: #003058;
+      }
+    }
   }
 
 }
