@@ -10,22 +10,22 @@
                   <img src="~/assets/img/logo.png" />
                 </a>
               </li>
-              <li>
+              <li class="d-none d-lg-block">
                 <a href="#">
                   Início
                 </a>
               </li>
-              <li>
+              <li class="d-none d-lg-block">
                 <a href="#">
                   Os Templos
                 </a>
               </li>
-              <li>
+              <li class="d-none d-lg-block">
                 <a href="#">
                   Galeria de Fotos
                 </a>
               </li>
-              <li>
+              <li class="d-none d-lg-block">
                 <a href="#">
                   Perguntas Frequentes
                 </a>

@@ -70,17 +70,17 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-8">
-            <div class="row">
-              <div class="col-md-7">
+            <div class="row justify-content-center">
+              <div class="col-8 col-lg-5 mb-4 order-lg-2">
+                <img src="~/assets/img/ulisses.jpg" class="w-100">
+              </div>
+              <div class="col-lg-7">
                 <p>Élder Ulisses Soares, membro do Quórum dos Doze Apóstolos, estará no Templo do Rio, acompanhando de sua esposa, para dar boas vindas e recepcionar todos os convidados.</p>
                 <p>O élder Ulisses Soares foi apoiado como membro do Quórum dos Doze Apóstolos de A Igreja de Jesus Cristo dos Santos dos Últimos Dias no dia 31 de março de 2018. O Quórum dos Doze Apóstolos é o segundo maior corpo presidente na administração da Igreja. Seus membros servem sob a orientação da Primeira Presidência, uma unidade administrativa formada por três homens — o presidente e dois conselheiros.</p>
                 <p>Além de sua responsabilidade principal de serem testemunhas especiais de Cristo em todo mundo, os apóstolos têm grandes responsabilidades administrativas como supervisionar o progresso e desenvolvimento ordenado da Igreja no mundo.</p>
               </div>
-              <div class="col-md-5">
-                <img src="~/assets/img/ulisses.jpg">
-              </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-5 order-lg-1">
               <div class="col">
                 <div class="ratio ratio-21x9">
                   <iframe src="https://www.youtube.com/embed/Z0gpwau8F3w?rel=0" title="YouTube video" allowfullscreen></iframe>
@@ -117,7 +117,7 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-8">
+          <div class="col-md-10 col-lg-8">
             <accordion>
               <accordion-item>
                 <template #accordion-trigger>
@@ -386,6 +386,9 @@ main {
   h2 {
     font-family: 'Playfair Display', serif;
     padding-bottom: 40px;
+    @media (max-width: 991.98px) {
+      padding-bottom: 20px;
+    }
   }
   h4 {
     font-family: 'Playfair Display', serif;
@@ -409,6 +412,9 @@ main {
       h1 {
         font-size: 4rem;
         font-family: 'Playfair Display', serif;
+        @media (max-width: 991.98px) {
+          font-size: 2rem;
+        }
       }
     }
     .callout {
@@ -416,6 +422,9 @@ main {
       padding: 60px 100px;
       background: #FFF;
       box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);
+      @media (max-width: 991.98px) {
+        padding: 30px;
+      }
     }
   }
 
