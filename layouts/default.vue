@@ -13,5 +13,8 @@ export default {}
   body {
     font-family: 'Roboto', sans-serif;
     color: #444;
+    img {
+      max-width: 100%;
+    }
   }
 </style>

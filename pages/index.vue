@@ -25,17 +25,6 @@
               <p>Os templos são o único local onde são realizadas cerimônias como o batismo e o casamento eterno em favor de pessoas falecidas — uma prática que os santos dos últimos dias acreditam que foi seguida na época do Novo Testamento, mas que mais tarde foi perdida.</p>
               <p>Os templos fazem com que os santos dos últimos dias se voltem para Jesus Cristo e tenham uma perspectiva de sua vida futura com Ele, com o Pai Celestial e com os membros de sua família sob a condição de fidelidade aos ensinamentos de Cristo.</p>
               <p>Há 167 templos no mundo, seja em funcionamento, em construção ou cujos projetos já foram anunciados.</p>
-              <div class="row">
-                <div class="col col-md-4">
-                  <img src="~/assets/img/otemplo_1.jpg" class="w-100" />
-                </div>
-                <div class="col col-md-4">
-                  <img src="~/assets/img/otemplo_2.jpg" class="w-100" />
-                </div>
-                <div class="col col-md-4">
-                  <img src="~/assets/img/otemplo_3.jpg" class="w-100" />
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -43,94 +32,30 @@
     </div>
 
     <div class="construcao">
+      <CoolLightBox
+        :items="gallery.items"
+        :index="gallery.index"
+        @close="gallery.index = null">
+      </CoolLightBox>
+
       <div class="container">
         <div class="row">
           <div class="col">
-            <h2>O Tempo do Rio</h2>
+            <h2>Galeria de Fotos</h2>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <p>A Primeira Presidência de A Igreja de Jesus Cristo dos Santos dos Últimos Dias divulgou novas datas para a visitação pública e dedicação do Templo do Rio de Janeiro Brasil. Em carta enviada a líderes do sacerdócio, a liderança da Igreja informa que o novo edifício será aberto para visitação entre 21 de março e 16 de abril de 2022, conforme segmentação:</p>
-            <ul>
-              <li>Visitação da mídia: 21 de março de 2022 (segunda-feira),</li>
-              <li>Convidados: 22 a 25 de março de 2022 (de terça à sexta-feira)</li>
-              <li>Visitação pública: 26 de março à 16 de abril de 2022 (exceto os dias 27 de março, 2, 3 e 10 de abril de 2022)</li>
-            </ul>
-            <p>Você pode realizar o seu agendamento por aqui.</p>
-            <p>Também foram anunciadas as datas para a dedicação do templo e para o devocional dos jovens. O Templo do Rio de Janeiro Brasil será dedicado no domingo, 08 de maio de 2022, em três sessões: às 9h, às 12h e às 15h.</p>
-            <p>Os jovens da Igreja se reunirão em uma capela da Igreja próxima ao templo para um devocional na noite anterior à dedicação, no sábado, 07 de maio. Tanto o devocional quanto a dedicação serão transmitidos para capelas dentro do distrito do Templo do Rio de Janeiro Brasil.</p>
-            <p>Inicialmente prevista para ocorrer em maio de 2020, a cerimônia de dedicação do Templo do Rio de Janeiro Brasil foi adiada devido às restrições impostas pela pandemia da COVID-19.</p>
-            <p>Os membros da Igreja consideram os templos a “casa do Senhor” e os lugares mais sagrados de adoração na Terra. Os templos são diferentes dos locais de adoração da Igreja (capelas). Todos são bem-vindos para participar dos serviços de adoração dominicais e de outras atividades durante a semana em capelas locais. O objetivo principal dos templos, no entanto, é que os fiéis membros da Igreja participem de cerimônias sagradas, como casamentos que unem famílias para sempre e batismos vicários em favor de antepassados falecidos que não tiveram a oportunidade enquanto viviam. Saiba mais sobre templos.</p>
-          </div>
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_1.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_2.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_3.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_4.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_5.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_6.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_7.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_8.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_9.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_10.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_11.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_12.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_13.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_14.jpg" class="w-100" />
-              </div>
-              <div class="col-md-4 mb-4">
-                <img src="~/assets/img/templo_15.jpg" class="w-100" />
+          <div class="col">
+            <div class="grid">
+              <div
+                v-for="(image, imageIndex) in gallery.items"
+                :key="imageIndex"
+                class="grid__item"
+                @click="gallery.index = imageIndex"
+              >
+                <img :src="image" class="w-100" />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="estatistica">
-      <div class="container">
-        <div class="row">
-          <div class="col text-center">
-            <h2>Brasil - Fatos e Estatísticas</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <img src="~/assets/img/estatisticas_1.jpg" class="w-100" />
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <img src="~/assets/img/estatisticas_2.jpg" class="w-100" />
           </div>
         </div>
       </div>
@@ -140,111 +65,45 @@
       <div class="container">
         <div class="row">
           <div class="col text-center">
-            <h2>Liderança e Organização</h2>
+            <h2>Boas Vindas Élder Ulisses Soares</h2>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-10 text-center">
-            <p>A administração de A Igreja de Jesus Cristo dos Santos dos Últimos Dias é dividida em áreas geográficas. Nos Estados Unidos e no Canadá, cada área é supervisionada por um membro da Presidência do Quórum dos Setenta que está estabelecida em Salt Lake City, Utah. As outras áreas são supervisionadas por um presidente de área e dois conselheiros que geralmente são membros dos Quóruns dos Setenta e moram nas áreas que lhes são designadas.</p>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-7">
+                <p>Élder Ulisses Soares, membro do Quórum dos Doze Apóstolos, estará no Templo do Rio, acompanhando de sua esposa, para dar boas vindas e recepcionar todos os convidados.</p>
+                <p>O élder Ulisses Soares foi apoiado como membro do Quórum dos Doze Apóstolos de A Igreja de Jesus Cristo dos Santos dos Últimos Dias no dia 31 de março de 2018. O Quórum dos Doze Apóstolos é o segundo maior corpo presidente na administração da Igreja. Seus membros servem sob a orientação da Primeira Presidência, uma unidade administrativa formada por três homens — o presidente e dois conselheiros.</p>
+                <p>Além de sua responsabilidade principal de serem testemunhas especiais de Cristo em todo mundo, os apóstolos têm grandes responsabilidades administrativas como supervisionar o progresso e desenvolvimento ordenado da Igreja no mundo.</p>
+              </div>
+              <div class="col-md-5">
+                <img src="~/assets/img/ulisses.jpg">
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col">
+                <div class="ratio ratio-21x9">
+                  <iframe src="https://www.youtube.com/embed/Z0gpwau8F3w?rel=0" title="YouTube video" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="container-fluid">
+    </div>
+
+    <div class="localizacao">
+      <div class="container">
         <div class="row">
-          <div class="col">
-            <client-only>
-              <Flickity ref="flickity" :options="flickityOptions" class="carousel">
-                <div class="carousel-card">
-                  <h4>Presidência da Área do Brasil</h4>
-                  <p>
-                    A Presidência de Área do Brasil atual é:
-                  </p>
-                  <ul>
-                    <li>
-                      Élder Adilson de Paula Parrella (Presidente da Área)
-                    </li>
-                    <li>
-                      Élder Joni L. Koch (1º Conselheiro)
-                    </li>
-                    <li>
-                      Élder Juan A. Uceda (2º Conselheiro)
-                    </li>
-                  </ul>
-                  <img :data-flickity-lazyload-src="require(`~/assets/img/lideranca_presidencia.jpg`)" class="w-100" />
-                </div>
-                <div class="carousel-card">
-                  <h4>A Primeira Presidência</h4>
-                  <p>
-                    A Primeira Presidência atual é:
-                  </p>
-                  <ul>
-                    <li>
-                      Presidente Russell M. Nelson (Presidente)
-                    </li>
-                    <li>
-                      Presidente Dallin H. Oaks (Primeiro Conselheiro)
-                    </li>
-                    <li>
-                      Presidente Henry B. Eyring (Segundo Conselheiro)
-                    </li>
-                  </ul>
-                  <img :data-flickity-lazyload-src="require(`~/assets/img/lideranca_primeira.jpg`)" class="w-100" />
-                </div>
-                <div class="carousel-card">
-                  <h4>O Quórum dos Doze Apóstolos</h4>
-                  <p>
-                    O Quórum dos Doze Apóstolos atual é composto por:
-                  </p>
-                  <ul>
-                    <li>
-                      Presidente Interino M. Russell Ballard
-                    </li>
-                    <li>
-                      Élder Jeffrey R. Holland
-                    </li>
-                    <li>
-                      Élder Dieter F. Uchtdorf
-                    </li>
-                    <li>
-                      Élder David A. Bednar
-                    </li>
-                    <li>
-                      Élder Quentin L. Cook
-                    </li>
-                    <li>
-                      Élder D. Todd Christofferson
-                    </li>
-                    <li>
-                      Élder Neil L. Andersen
-                    </li>
-                    <li>
-                      Élder Ronald A. Rasband
-                    </li>
-                    <li>
-                      Élder Gary E. Stevenson
-                    </li>
-                    <li>
-                      Élder Dale G. Renlund
-                    </li>
-                    <li>
-                      Élder Gerrit W. Gong
-                    </li>
-                    <li>
-                      Élder Ulisses Soares
-                    </li>
-                  </ul>
-                  <img :data-flickity-lazyload-src="require(`~/assets/img/lideranca_quorum.jpg`)" class="w-100" />
-                </div>
-                <div class="carousel-card">
-                  <h4>Élder Ulisses Soares</h4>
-                  <img :data-flickity-lazyload-src="require(`~/assets/img/lideranca_ulisses.jpg`)" class="float-end ps-3" />
-                  <p>O élder Ulisses Soares foi apoiado como membro do Quórum dos Doze Apóstolos de A Igreja de Jesus Cristo dos Santos dos Últimos Dias no dia 31 de março de 2018. Ele serviu como setenta autoridade geral a partir de 2 de abril de 2005 e foi chamado para a presidência dos setenta em 6 de janeiro de 2013. Serviu anteriormente como conselheiro na Área África Sudeste, presidente da Área Brasil e conselheiro na Área Brasil Sul.</p>
-                  <p>Graduou-se em contabilidade e economia pela Escola de Ciências Econômicas da Pontifícia Universidade Católica de São Paulo em 1985 e, posteriormente, recebeu um diploma de pós-graduação (MBA). Trabalhou como contador e auditor para corporações multinacionais no Brasil e como diretor de assuntos temporais no escritório da área da Igreja, em São Paulo, Brasil. Por ocasião de seu chamado como autoridade geral, ele servia em uma designação especial para o bispado presidente da Igreja em Salt Lake City.</p>
-                  <p>Serviu em vários chamados na Igreja, incluindo: missionário de tempo integral na Missão Brasil Rio de Janeiro, presidente do quórum de élderes, conselheiro no bispado, sumo conselheiro, secretário executivo da estaca, agente regional de bem-estar, presidente de estaca e presidente da Missão Portugal Porto (2000–2003).</p>
-                  <p>O élder Soares nasceu em São Paulo, Brasil, em 2 de outubro de 1958. Casou-se com Rosana Fernandes em outubro de 1982. Eles têm três filhos e três netos.</p>
-                </div>
-              </Flickity>
-            </client-only>
+          <div class="col text-center">
+            <h2>Localização</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-9">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.624248451831!2d-43.40154844868762!3d-23.000840884890298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bdb82ff03a8d9%3A0x7444b2c941960bd3!2sAv.%20das%20Am%C3%A9ricas%2C%209005%20-%20Barra%20da%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022793-081!5e0!3m2!1spt-BR!2sbr!4v1644079937541!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -274,7 +133,8 @@
         <div v-if="currentStep === 1" class="step1">
           <div class="row">
             <div class="col-md-6">
-              <p>O Templo do Rio da Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visitação completa, selecione data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
+              <p>O Templo do Rio de Janeiro, de A Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visita completa, selecione a data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
+              <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
             </div>
             <div class="col-md-6">
               <CardSchedule :date="'2022-03-22'" :spots="722" @click.native="currentStep = 2" />
@@ -286,7 +146,7 @@
         </div>
         <div v-if="currentStep === 2" class="step2">
           <div class="row justify-content-around">
-            <div class="col-md-5">
+            <div class="col-md-3">
               <CardSchedule :date="'2022-03-23 09:00'" :spots="60" />
               <CardSchedule :date="'2022-03-23 09:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 09:30'" :spots="60" />
@@ -303,6 +163,8 @@
               <CardSchedule :date="'2022-03-23 12:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 12:30'" :spots="60" />
               <CardSchedule :date="'2022-03-23 12:45'" :spots="60" />
+            </div>
+            <div class="col-md-3">
               <CardSchedule :date="'2022-03-23 13:00'" :spots="60" />
               <CardSchedule :date="'2022-03-23 13:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 13:30'" :spots="60" />
@@ -311,8 +173,6 @@
               <CardSchedule :date="'2022-03-23 14:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 14:30'" :spots="60" />
               <CardSchedule :date="'2022-03-23 14:45'" :spots="60" />
-            </div>
-            <div class="col-md-5">
               <CardSchedule :date="'2022-03-23 15:00'" :spots="60" />
               <CardSchedule :date="'2022-03-23 15:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 15:30'" :spots="60" />
@@ -321,6 +181,8 @@
               <CardSchedule :date="'2022-03-23 16:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 16:30'" :spots="60" />
               <CardSchedule :date="'2022-03-23 16:45'" :spots="60" />
+            </div>
+            <div class="col-md-3">
               <CardSchedule :date="'2022-03-23 17:00'" :spots="60" />
               <CardSchedule :date="'2022-03-23 17:15'" :spots="60" />
               <CardSchedule :date="'2022-03-23 17:30'" :spots="60" />
@@ -348,11 +210,44 @@
 </template>
 
 <script>
+import CoolLightBox from 'vue-cool-lightbox'
+import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+
 export default {
   name: 'IndexPage',
+  components: {
+    CoolLightBox,
+  },
   data () {
     return {
       currentStep: 1,
+      gallery: {
+        items: [
+          '/img/001db7326e638032470a02813c9e47191ef74b0e.jpg',
+          '/img/4f20f1e63339d99efaa9f67bae5c268b80eebbb4.jpg',
+          '/img/5aa85fb6f20a17f629302687710142328a707d4d.jpg',
+          '/img/7acbc19afbd43541f7e347e63788819b92ee1cf2.jpg',
+          '/img/7fbadb86ee6d57f290034b02013dd8ba66f1de93.jpg',
+          '/img/8cc25a05e594004ab3c968f712c8f6d378cf133d.jpg',
+          '/img/10da19dcf8657dfc79937c55e14eda75e89f1cbd.jpg',
+          '/img/35f0141e865cdcc4267d1de78bef3693f305953e.jpg',
+          '/img/44a124e6fe618047c177f883622a35d3a95dec86A.jpg',
+          '/img/60fc821ebc28e202c992a141d007187272c1f143.jpg',
+          '/img/86e695418ffc5d733768fab1fa91d373a4f955e6.jpg',
+          '/img/90eb02c602f2560a825b2c6cf27953741b67b14c.jpg',
+          '/img/094cee15829bcf97dcb7b96ab1549d9974819419.jpg',
+          '/img/96a730d5234af311f1484511b97b7b4049dda1cd.jpg',
+          '/img/130d4ae592e1e19dfb0514a5b77807a52d00f2f1.jpg',
+          '/img/954a3b8cab5c88260e94d6ffb504f2c58338a029.jpg',
+          '/img/743652dbbf1ab19966da7eb3c7570d08cfc3ab8b.jpg',
+          '/img/9818718242f5681b4543560b553e0498684b53e2.jpg',
+          '/img/a300795d321358659972549afbbf80c7956a9120.jpg',
+          '/img/ab0d337b12b4c0482de3e63e821583a2baa8870f.jpg',
+          '/img/ba79609cb94525e0d9a98d68016efba13c89dac8.jpg',
+          '/img/c9df17c8040f21776c108365ff9f61098302aa63.jpg'
+        ],
+        index: null
+      },
       flickityOptions: {
         pageDots: false,
         contain: true,
@@ -410,10 +305,15 @@ main {
 
   .construcao {
     padding: 50px 0;
-  }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(290px,1fr));
+      grid-auto-rows: auto;
+      grid-gap: 30px;
+      &__item {
 
-  .estatisticas {
-    padding: 50px 0;
+      }
+    }
   }
 
   .lideranca {
@@ -429,6 +329,10 @@ main {
   }
 
   .faq {
+    padding: 50px 0;
+  }
+
+  .localizacao {
     padding: 50px 0;
   }
 

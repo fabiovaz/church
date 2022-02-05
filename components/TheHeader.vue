@@ -22,17 +22,7 @@
               </li>
               <li>
                 <a href="#">
-                  Brasil - Fatos e Estatísticas
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  O Templo do Rio
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  Liderança e Organização
+                  Galeria de Fotos
                 </a>
               </li>
               <li>
@@ -42,7 +32,7 @@
               </li>
               <li>
                 <a href="#" class="button text-center">
-                  AGENDAR<br />VISITA
+                  AGENDAR VISITA
                 </a>
               </li>
             </ul>
@@ -79,6 +69,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
+    transition: all .1s;
     nav {
       ul {
         display: flex;
@@ -92,6 +83,10 @@ export default {
             display: block;
             color: #FFF;
             text-decoration: none;
+            img {
+              width: 190px;
+              transition: all .3s;
+            }
           }
         }
       }
@@ -105,18 +100,16 @@ export default {
       }
     }
     &.scrolled {
-      height: 80px;
       background: #FFF;
-      box-shadow: 0px 4px 40px rgb(0 0 0 / 5%);    
+      box-shadow: 0px 4px 40px rgb(0 0 0 / 5%);
       nav {
         ul {
           li {
-            margin-top: -40px;
-            &:first-child, &:last-child {
-              margin-top: 0;
-            }
             a {
               color: #000;
+              img {
+                width: 120px;
+              }
               &.button {
                 color: #FFF;
               }
