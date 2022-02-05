@@ -207,10 +207,6 @@
       </div>
     </div>
 
-    <pre>
-      {{ schedule }}
-    </pre>
-
     <div class="agenda">
       <div class="container">
         <div class="row">
@@ -225,7 +221,7 @@
               <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
             </div>
             <div class="col-md-6">
-              <CardSchedule :date="'2022-03-22'" :spots="722" @click.native="fetchSchedule(2, {horario: '2022-03-22'})" />
+              <CardSchedule :date="'2022-03-22'" :spots="722" @click.native="fetchSchedule(2, {horario: '2022-02-22'})" />
               <CardSchedule :date="'2022-03-23'" :spots="1400" @click.native="fetchSchedule(2, {horario: '2022-03-23'})" />
               <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="fetchSchedule(2, {horario: '2022-03-24'})" />
               <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="fetchSchedule(2, {horario: '2022-03-25'})" />
@@ -235,59 +231,13 @@
         <div v-if="currentStep === 2" class="step2">
           <div class="row justify-content-around">
             <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 09:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 09:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 09:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 09:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 10:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 10:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 10:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 10:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 11:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 11:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 11:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 11:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 12:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 12:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 12:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 12:45'" :spots="60" @click.native="fetchSchedule(3)" />
-            </div>
-            <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 13:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 13:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 13:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 13:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 14:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 14:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 14:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 14:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 15:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 15:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 15:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 15:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 16:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 16:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 16:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 16:45'" :spots="60" @click.native="fetchSchedule(3)" />
-            </div>
-            <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 17:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 17:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 17:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 17:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 18:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 18:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 18:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 18:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 19:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 19:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 19:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 19:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 20:00'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 20:15'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 20:30'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 20:45'" :spots="60" @click.native="fetchSchedule(3)" />
-              <CardSchedule :date="'2022-03-23 21:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule
+                v-for="(schedule, index) in schedules" :key="index"
+                :date="schedule.attributes.horario"
+                :spots="60 - schedule.attributes.contador"
+                @click.native="fetchSchedule(3)"
+              >
+              </CardSchedule>
             </div>
           </div>
         </div>
@@ -358,7 +308,7 @@ export default {
   data () {
     return {
       currentStep: 1,
-      schedule: [],
+      schedules: [],
       visitor: {
         name: null,
         email: null,
@@ -395,7 +345,7 @@ export default {
     }
   },
   created () {
-    this.fetchSchedule(1, null)
+    // this.fetchSchedule(1, null)
   },
   methods: {
     addGuest () {
@@ -425,19 +375,31 @@ export default {
           break
         default:
       }
-      await this.$axios.setToken('21036055982e4f2a27c7a06f73ae7b78c4c0660b89c0d3646072ae266817d0a2bc4ed5bbc215c922af62c3db2174197a7e8b261a1e49d3f6e0169f34601663b7de1acf9d6504ce95cde77e55f03b3125c8fe665cbcb03fa1034d7e6cc2c07bc2f2d9ce29aa564f76259d5362dddc8776a3b4b3f322e9c334082c3b13f53d320e', 'Bearer')
-      // const schedule = await this.$axios.$get('/agendas', { params })
-      // this.schedule = schedule
+      // {horario: '2022-03-23'}
 
-      // const query = qs.stringify({
-      //   created_at_gte: firstDayOfTheMonth,
-      //   created_at_lte: lastDayOfTheMonth
-      // })
+      const qs = require('qs')
+      const query = qs.stringify({
+        filters: {
+          horario: {
+            $containsi: params.horario,
+          },
+        },
+        pagination: {
+          page: 1,
+          pageSize: 60,
+        },
+      }, {
+        encodeValuesOnly: true,
+      })
+
+      // await this.$axios.setToken('21036055982e4f2a27c7a06f73ae7b78c4c0660b89c0d3646072ae266817d0a2bc4ed5bbc215c922af62c3db2174197a7e8b261a1e49d3f6e0169f34601663b7de1acf9d6504ce95cde77e55f03b3125c8fe665cbcb03fa1034d7e6cc2c07bc2f2d9ce29aa564f76259d5362dddc8776a3b4b3f322e9c334082c3b13f53d320e', 'Bearer')
+      const { data: schedules } = await this.$axios.$get(`/agendas?${query}`)
+      this.schedules = schedules
     },
     addSchedule () {
       // console.log(this.visitor)
       // console.log(this.guests)
-      // const visitor = await this.$axios.$post('/agendas')
+      // const visitor = await this.$axios.$post('/agendas', this.visitor, this.guests)
         // .then((Response) => {})
         // .catch((err) => {
         //   this.errors.push(err)
