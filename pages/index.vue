@@ -206,6 +206,11 @@
         </div>
       </div>
     </div>
+
+    <pre>
+      {{ schedule }}
+    </pre>
+
     <div class="agenda">
       <div class="container">
         <div class="row">
@@ -220,69 +225,69 @@
               <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
             </div>
             <div class="col-md-6">
-              <CardSchedule :date="'2022-03-22'" :spots="722" @click.native="currentStep = 2" />
-              <CardSchedule :date="'2022-03-23'" :spots="1400" @click.native="currentStep = 2" />
-              <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="currentStep = 2" />
-              <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="currentStep = 2" />
+              <CardSchedule :date="'2022-03-22'" :spots="722" @click.native="fetchSchedule(2, {horario: '2022-03-22'})" />
+              <CardSchedule :date="'2022-03-23'" :spots="1400" @click.native="fetchSchedule(2, {horario: '2022-03-23'})" />
+              <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="fetchSchedule(2, {horario: '2022-03-24'})" />
+              <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="fetchSchedule(2, {horario: '2022-03-25'})" />
             </div>
           </div>
         </div>
         <div v-if="currentStep === 2" class="step2">
           <div class="row justify-content-around">
             <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 09:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 09:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 09:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 09:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 10:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 10:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 10:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 10:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 11:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 11:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 11:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 11:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 12:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 12:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 12:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 12:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 09:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 09:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 09:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 09:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 10:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 10:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 10:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 10:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 11:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 11:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 11:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 11:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 12:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 12:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 12:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 12:45'" :spots="60" @click.native="fetchSchedule(3)" />
             </div>
             <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 13:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 13:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 13:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 13:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 14:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 14:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 14:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 14:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 15:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 15:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 15:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 15:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 16:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 16:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 16:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 16:45'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 13:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 13:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 13:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 13:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 14:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 14:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 14:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 14:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 15:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 15:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 15:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 15:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 16:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 16:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 16:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 16:45'" :spots="60" @click.native="fetchSchedule(3)" />
             </div>
             <div class="col-md-3">
-              <CardSchedule :date="'2022-03-23 17:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 17:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 17:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 17:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 18:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 18:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 18:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 18:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 19:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 19:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 19:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 19:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 20:00'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 20:15'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 20:30'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 20:45'" :spots="60" @click.native="currentStep = 3" />
-              <CardSchedule :date="'2022-03-23 21:00'" :spots="60" @click.native="currentStep = 3" />
+              <CardSchedule :date="'2022-03-23 17:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 17:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 17:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 17:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 18:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 18:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 18:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 18:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 19:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 19:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 19:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 19:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 20:00'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 20:15'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 20:30'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 20:45'" :spots="60" @click.native="fetchSchedule(3)" />
+              <CardSchedule :date="'2022-03-23 21:00'" :spots="60" @click.native="fetchSchedule(3)" />
             </div>
           </div>
         </div>
@@ -294,27 +299,42 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-4">
-              <form>
+              <form @submit.prevent="addSchedule">
                 <div class="mb-3">
                   <label for="inputName" class="form-label">Seu nome</label>
-                  <input id="inputName" type="name"  class="form-control">
+                  <input id="inputName" v-model="visitor.name" type="text" class="form-control">
                 </div>
                 <div class="mb-3">
                   <label for="inputEmail" class="form-label">Seu e-mail</label>
-                  <input id="inputEmail" type="email" class="form-control">
+                  <input id="inputEmail" v-model="visitor.email" type="email" class="form-control">
                 </div>
-                <div class="mb-3">
+                <div class="mb-5">
                   <label for="inputTelephone" class="form-label">Seu telefone</label>
-                  <input id="inputTelephone"  type="telephone" class="form-control">
+                  <input id="inputTelephone" v-model="visitor.telephone" type="telephone" class="form-control">
                 </div>
+
+                <div class="guests">
+                  <div v-for="(guest, index) in guests" :key="index">
+                    <div class="mb-3">
+                      <label class="form-label">Nome do convidado</label>
+                      <div class="position-relative">
+                        <input v-model="guest.name"  type="text" class="form-control">
+                        <button type="button" class="btn remove" @click="removeGuest(index)">
+                          &times;
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="button">
+                  <button type="button" class="btn add" @click="addGuest">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7.99984 8.00008H2.6665M7.99984 13.3334V8.00008V13.3334ZM7.99984 8.00008V2.66675V8.00008ZM7.99984 8.00008H13.3332H7.99984Z" stroke="#003058" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                     Adicionar convidado
-                  </div>
-                  <button type="submit" class="btn">Agendar</button>
+                  </button>
+                  <button type="submit" class="btn submit">Agendar</button>
                 </div>
               </form>
             </div>
@@ -339,6 +359,12 @@ export default {
     return {
       currentStep: 1,
       schedule: [],
+      visitor: {
+        name: null,
+        email: null,
+        telephone: null
+      },
+      guests: [],
       gallery: {
         items: [
           '/img/001db7326e638032470a02813c9e47191ef74b0e.jpg',
@@ -369,13 +395,54 @@ export default {
     }
   },
   created () {
-    this.fetchSchedule()
+    this.fetchSchedule(1, null)
   },
   methods: {
-    async fetchSchedule() {
-      this.$axios.setToken('21036055982e4f2a27c7a06f73ae7b78c4c0660b89c0d3646072ae266817d0a2bc4ed5bbc215c922af62c3db2174197a7e8b261a1e49d3f6e0169f34601663b7de1acf9d6504ce95cde77e55f03b3125c8fe665cbcb03fa1034d7e6cc2c07bc2f2d9ce29aa564f76259d5362dddc8776a3b4b3f322e9c334082c3b13f53d320e', 'Bearer')
-      const schedule = await this.$axios.$get('/agendas')
-      this.schedule = schedule
+    addGuest () {
+      this.guests.push({
+        name: ''
+      })
+    },
+    removeGuest (index) {
+      this.guests.splice(index, 1)
+    },
+    async fetchSchedule (step, params) {
+      switch (step) {
+        case 1:
+          this.currentStep = 1
+          break
+        case 2:
+          this.currentStep = 2
+          break
+        case 3:
+          this.currentStep = 3
+          break
+        case 'next':
+          this.currentStep++
+          break
+        case 'prev':
+          this.currentStep--
+          break
+        default:
+      }
+      await this.$axios.setToken('21036055982e4f2a27c7a06f73ae7b78c4c0660b89c0d3646072ae266817d0a2bc4ed5bbc215c922af62c3db2174197a7e8b261a1e49d3f6e0169f34601663b7de1acf9d6504ce95cde77e55f03b3125c8fe665cbcb03fa1034d7e6cc2c07bc2f2d9ce29aa564f76259d5362dddc8776a3b4b3f322e9c334082c3b13f53d320e', 'Bearer')
+      // const schedule = await this.$axios.$get('/agendas', { params })
+      // this.schedule = schedule
+
+      // const query = qs.stringify({
+      //   created_at_gte: firstDayOfTheMonth,
+      //   created_at_lte: lastDayOfTheMonth
+      // })
+    },
+    addSchedule () {
+      // console.log(this.visitor)
+      // console.log(this.guests)
+      // const visitor = await this.$axios.$post('/agendas')
+        // .then((Response) => {})
+        // .catch((err) => {
+        //   this.errors.push(err)
+        // })
+      // console.log(visitor)
     }
   }
 }
@@ -464,13 +531,27 @@ main {
   .agenda {
     padding: 50px 0;
     form {
-      .button {}
-      button.btn {
-        padding: 15px 20px;
-        text-transform: uppercase;
-        font-size: 14px;
-        color: #FFF;
-        background: #003058;
+      .guests {
+        .form-control {
+          padding-right: 35px;
+        }
+      }
+      button {
+        &.add {
+          padding: 0;
+        }
+        &.remove {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        &.submit {
+          padding: 15px 20px;
+          text-transform: uppercase;
+          font-size: 14px;
+          color: #FFF;
+          background: #003058;
+        }
       }
     }
   }
