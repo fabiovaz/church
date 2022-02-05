@@ -118,6 +118,88 @@
         </div>
         <div class="row">
           <div class="col">
+            <accordion>
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>Não sou membro da Igreja. Ainda posso vir?</h3>
+                </template>
+                <template #accordion-content>
+                  <span>Em absoluto! Todos são bem-vindos para frequentar nossos eventos e serviços de adoração. Pedimos que todos os presentes usem linguagem apropriada e tratem a todos com respeito. Somos Cristãos que fazemos nosso melhor para seguir os mandamentos e ensinamentos de Cristo. Qualquer que seja sua crença ou orientação religiosa, ou mesmo se não tiver uma crença religiosa, você está convidado a unir-se a nós!</span>
+                </template>
+              </accordion-item>
+
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>Quantas crianças posso trazer?</h3>
+                </template>
+                <template #accordion-content>
+                  <span>Traga todos seus filhos. Todos são bem-vindos.</span>
+                </template>
+              </accordion-item>
+
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>E se eu tiver mais de 10 pessoas no meu grupo? </h3>
+                </template>
+                <template #accordion-content>
+                  <span>Faça a confirmação da visita, dia e horário.</span>
+                </template>
+              </accordion-item>
+
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>Posso voltar e reservar outros dias? </h3>
+                </template>
+                <template #accordion-content>
+                  <span>Sim, se desejar voltar a visitar o Templo e trazer amigos e familiares, agende outro dia, será um prazer recebê-los novamente.  </span>
+                </template>
+              </accordion-item>
+
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>Como cancelo minha visita?</h3>
+                </template>
+                <template #accordion-content>
+                  <span>Entre em contato pelo telefone (11) 97651-9201 (WhatsApp)</span>
+                </template>
+              </accordion-item>
+
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>Posso usar um carrinho de bebê no tour?</h3>
+                </template>
+                <template #accordion-content>
+                  <span>Há escadas e múltiplas mudanças de elevação envolvendo dois ou mais degraus no transcorrer do tour. Crianças de colo precisarão ser carregadas.</span>
+                </template>
+              </accordion-item>
+
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>Poderei usar uma cadeira de rodas elétrica? </h3>
+                </template>
+                <template #accordion-content>
+                  <span>Há áreas do tour que não são acessíveis a cadeiras de rodas elétricas. No entanto, haverá cadeiras de rodas não elétricas e ajudantes para dar assistência aos visitantes durante todo o tour do Templo.</span>
+                </template>
+              </accordion-item>
+
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>Não recebi meu e-mail de confirmação com meus ingressos. Que devo fazer?</h3>
+                </template>
+                <template #accordion-content>
+                  <span>Há duas razões pelas quais você não tenha recebido seu e-mail de confirmação: 1.) O e-mail foi para sua caixa de SPAM. Por favor verifique esses arquivos de e-mail e procure por um e-mail de “Confirmação de Agendamento”. 2.) Foi colocado endereço de e-mail errado no pedido. Por favor mande por e-mail o primeiro nome e sobrenome que você usou para reservar os ingressos e o endereço de e-mail correto para templodoriodejaneiro@gmail.com -  tentaremos achar seu pedido e reenviar os ingressos. </span>
+                </template>
+              </accordion-item>
+
+              <accordion-item>
+                <template #accordion-trigger>
+                  <h3>Haverá estacionamento no local?</h3>
+                </template>
+                <template #accordion-content>
+                  <span>Sim, há estacionamento no local e pessoas capacitadas irão orientá-los na chegada.</span>
+                </template>
+              </accordion-item>
+            </accordion>
           </div>
         </div>
       </div>
