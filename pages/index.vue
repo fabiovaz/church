@@ -221,7 +221,7 @@
               <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
             </div>
             <div class="col-md-6">
-              <CardSchedule :date="'2022-03-22'" :spots="722" @click.native="fetchSchedule(2, {horario: '2022-02-22'})" />
+              <CardSchedule :date="'2022-02-22'" :spots="722" @click.native="fetchSchedule(2, {horario: '2022-02-22'})" />
               <CardSchedule :date="'2022-03-23'" :spots="1400" @click.native="fetchSchedule(2, {horario: '2022-03-23'})" />
               <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="fetchSchedule(2, {horario: '2022-03-24'})" />
               <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="fetchSchedule(2, {horario: '2022-03-25'})" />
