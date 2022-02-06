@@ -269,15 +269,15 @@
                 <input v-model="visitor.grupo" type="hidden" class="form-control">
                 <div class="mb-3">
                   <label for="inputName" class="form-label">Seu nome</label>
-                  <input id="inputName" v-model="visitor.nome" type="text" class="form-control">
+                  <input id="inputName" v-model="visitor.nome" type="text" class="form-control" required>
                 </div>
                 <div class="mb-3">
                   <label for="inputEmail" class="form-label">Seu e-mail</label>
-                  <input id="inputEmail" v-model="visitor.email" type="email" class="form-control">
+                  <input id="inputEmail" v-model="visitor.email" type="email" class="form-control" required>
                 </div>
                 <div class="mb-5">
                   <label for="inputTelephone" class="form-label">Seu telefone</label>
-                  <input id="inputTelephone" v-model="visitor.telefone" type="telephone" class="form-control">
+                  <input id="inputTelephone" v-model="visitor.telefone" type="telephone" class="form-control" required>
                 </div>
 
                 <div class="guests">
@@ -285,7 +285,7 @@
                     <div class="mb-3">
                       <label class="form-label">Nome do convidado</label>
                       <div class="position-relative">
-                        <input v-model="guest.nome"  type="text" class="form-control">
+                        <input v-model="guest.nome"  type="text" class="form-control" required>
                         <button type="button" class="btn remove" @click="removeGuest(index)">
                           &times;
                         </button>
