@@ -221,10 +221,10 @@
               <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
             </div>
             <div class="col-md-6">
-              <CardSchedule :date="'2022-02-22'" :spots="722" @click.native="fetchSchedule(2, {horario: '2022-02-22'})" />
-              <CardSchedule :date="'2022-03-23'" :spots="1400" @click.native="fetchSchedule(2, {horario: '2022-03-23'})" />
-              <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="fetchSchedule(2, {horario: '2022-03-24'})" />
-              <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="fetchSchedule(2, {horario: '2022-03-25'})" />
+              <CardSchedule :date="'2022-02-22'" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />
+              <CardSchedule :date="'2022-03-23'" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-03-23' })" />
+              <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />
+              <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />
             </div>
           </div>
         </div>
@@ -232,12 +232,27 @@
           <div class="row justify-content-around">
             <div class="col-md-3">
               <CardSchedule
-                v-for="(schedule, index) in schedules" :key="index"
+                v-for="(schedule, index) in filteredItems(1, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
                 :spots="60 - schedule.attributes.contador"
-                @click.native="fetchSchedule(3)"
-              >
-              </CardSchedule>
+                @click.native="fetchSchedule(3, { horario: schedule.attributes.horario })"
+              />
+            </div>
+            <div class="col-md-3">
+              <CardSchedule
+                v-for="(schedule, index) in filteredItems(2, 3, schedules)" :key="index"
+                :date="schedule.attributes.horario"
+                :spots="60 - schedule.attributes.contador"
+                @click.native="fetchSchedule(3, { horario: schedule.attributes.horario })"
+              />
+            </div>
+            <div class="col-md-3">
+              <CardSchedule
+                v-for="(schedule, index) in filteredItems(3, 3, schedules)" :key="index"
+                :date="schedule.attributes.horario"
+                :spots="60 - schedule.attributes.contador"
+                @click.native="fetchSchedule(3, { horario: schedule.attributes.horario })"
+              />
             </div>
           </div>
         </div>
@@ -250,6 +265,7 @@
           <div class="row justify-content-center">
             <div class="col-md-4">
               <form @submit.prevent="addSchedule">
+                <input v-model="visitor.schedule" type="hidden" class="form-control">
                 <div class="mb-3">
                   <label for="inputName" class="form-label">Seu nome</label>
                   <input id="inputName" v-model="visitor.name" type="text" class="form-control">
@@ -303,13 +319,14 @@ import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 export default {
   name: 'IndexPage',
   components: {
-    CoolLightBox,
+    CoolLightBox
   },
   data () {
     return {
       currentStep: 1,
       schedules: [],
       visitor: {
+        schedule: null,
         name: null,
         email: null,
         telephone: null
@@ -375,26 +392,28 @@ export default {
           break
         default:
       }
-      // {horario: '2022-03-23'}
 
-      const qs = require('qs')
-      const query = qs.stringify({
-        filters: {
-          horario: {
-            $containsi: params.horario,
+      if (this.currentStep === 2) {
+        const qs = require('qs')
+        const query = qs.stringify({
+          filters: {
+            horario: {
+              $containsi: params.horario,
+            },
           },
-        },
-        pagination: {
-          page: 1,
-          pageSize: 60,
-        },
-      }, {
-        encodeValuesOnly: true,
-      })
-
-      // await this.$axios.setToken('21036055982e4f2a27c7a06f73ae7b78c4c0660b89c0d3646072ae266817d0a2bc4ed5bbc215c922af62c3db2174197a7e8b261a1e49d3f6e0169f34601663b7de1acf9d6504ce95cde77e55f03b3125c8fe665cbcb03fa1034d7e6cc2c07bc2f2d9ce29aa564f76259d5362dddc8776a3b4b3f322e9c334082c3b13f53d320e', 'Bearer')
-      const { data: schedules } = await this.$axios.$get(`/agendas?${query}`)
-      this.schedules = schedules
+          pagination: {
+            page: 1,
+            pageSize: 60,
+          },
+        }, {
+          encodeValuesOnly: true,
+        })
+        const { data: schedules } = await this.$axios.$get(`/agendas?${query}`)
+        this.schedules = schedules
+      }
+      if (this.currentStep === 3) {
+        this.visitor.schedule = params.horario
+      }
     },
     addSchedule () {
       // console.log(this.visitor)
@@ -405,6 +424,20 @@ export default {
         //   this.errors.push(err)
         // })
       // console.log(visitor)
+    },
+    filteredItems(column, columns, element) {
+      const total = element.length
+      const gap = Math.ceil(total / columns)
+      let top = (gap * column)
+      const bottom = ((top - gap))
+      top--
+      // return element.filter(item => element.indexOf(item) % columns === column - 1 )
+      // return element.filter(function(el) {
+      //   console.log('top:', top, 'bottom:', bottom, 'index:', element.indexOf(el))
+      //   return true
+      //   // return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
+      // })
+      return element.filter(item => element.indexOf(item) >= bottom && element.indexOf(item) <= top)
     }
   }
 }
@@ -464,9 +497,6 @@ main {
       grid-template-columns: repeat(auto-fill,minmax(290px,1fr));
       grid-auto-rows: auto;
       grid-gap: 30px;
-      &__item {
-
-      }
     }
   }
 
