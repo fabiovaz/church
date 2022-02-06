@@ -53,7 +53,7 @@
                 class="grid__item"
                 @click="gallery.index = imageIndex"
               >
-                <img :src="image" class="w-100" />
+                <img :src="image.replace(/.jpg/g, '_thumb.jpg')" class="w-100" />
               </div>
             </div>
           </div>
@@ -214,6 +214,7 @@
             <h2>Agendar Visita</h2>
           </div>
         </div>
+
         <div v-if="currentStep === 1" class="step1">
           <div class="row">
             <div class="col-md-6">
@@ -222,7 +223,7 @@
             </div>
             <div class="col-md-6">
               <CardSchedule :date="'2022-02-22'" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />
-              <CardSchedule :date="'2022-03-23'" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-03-23' })" />
+              <CardSchedule :date="'2022-02-23'" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-02-23' })" />
               <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />
               <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />
             </div>
@@ -235,7 +236,7 @@
                 v-for="(schedule, index) in filteredItems(1, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
                 :spots="60 - schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.attributes.horario })"
+                @click.native="fetchSchedule(3, { horario: schedule.id })"
               />
             </div>
             <div class="col-md-3">
@@ -243,7 +244,7 @@
                 v-for="(schedule, index) in filteredItems(2, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
                 :spots="60 - schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.attributes.horario })"
+                @click.native="fetchSchedule(3, { horario: schedule.id })"
               />
             </div>
             <div class="col-md-3">
@@ -251,24 +252,21 @@
                 v-for="(schedule, index) in filteredItems(3, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
                 :spots="60 - schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.attributes.horario })"
+                @click.native="fetchSchedule(3, { horario: schedule.id })"
               />
             </div>
           </div>
         </div>
         <div v-if="currentStep === 3" class="step3">
-          <div class="row">
-            <div class="col text-center">
-              <p>Por favor preencha os dados para completar a requisição.</p>
-            </div>
-          </div>
           <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div v-if="!submitSchedule.success" class="col-md-4">
+              <p>Por favor preencha os dados para completar a requisição.</p>
               <form @submit.prevent="addSchedule">
-                <input v-model="visitor.schedule" type="hidden" class="form-control">
+                <input v-model="visitor.agenda" type="hidden" class="form-control">
+                <input v-model="visitor.grupo" type="hidden" class="form-control">
                 <div class="mb-3">
                   <label for="inputName" class="form-label">Seu nome</label>
-                  <input id="inputName" v-model="visitor.name" type="text" class="form-control">
+                  <input id="inputName" v-model="visitor.nome" type="text" class="form-control">
                 </div>
                 <div class="mb-3">
                   <label for="inputEmail" class="form-label">Seu e-mail</label>
@@ -276,7 +274,7 @@
                 </div>
                 <div class="mb-5">
                   <label for="inputTelephone" class="form-label">Seu telefone</label>
-                  <input id="inputTelephone" v-model="visitor.telephone" type="telephone" class="form-control">
+                  <input id="inputTelephone" v-model="visitor.telefone" type="telephone" class="form-control">
                 </div>
 
                 <div class="guests">
@@ -284,7 +282,7 @@
                     <div class="mb-3">
                       <label class="form-label">Nome do convidado</label>
                       <div class="position-relative">
-                        <input v-model="guest.name"  type="text" class="form-control">
+                        <input v-model="guest.nome"  type="text" class="form-control">
                         <button type="button" class="btn remove" @click="removeGuest(index)">
                           &times;
                         </button>
@@ -303,6 +301,11 @@
                   <button type="submit" class="btn submit">Agendar</button>
                 </div>
               </form>
+            </div>
+            <div v-if="submitSchedule.success" class="col-md-6 text-center">
+              <p>Sua visita ao Templo do Rio foi agendada com sucesso.</p>
+              <p>Você irá receber um E-mail com a confirmação da sua reserva.</p>
+              <p>Em caso de dúvidas ou alterações, entrar em contato com: (11) 97651-9201</p>
             </div>
           </div>
         </div>
@@ -326,37 +329,19 @@ export default {
       currentStep: 1,
       schedules: [],
       visitor: {
-        schedule: null,
-        name: null,
+        agenda: null,
+        nome: null,
         email: null,
-        telephone: null
+        telefone: null,
+        grupo: Date.now()
       },
       guests: [],
+      submitSchedule: {
+        loading: false,
+        success: null
+      },
       gallery: {
-        items: [
-          '/img/001db7326e638032470a02813c9e47191ef74b0e.jpg',
-          '/img/4f20f1e63339d99efaa9f67bae5c268b80eebbb4.jpg',
-          '/img/5aa85fb6f20a17f629302687710142328a707d4d.jpg',
-          '/img/7acbc19afbd43541f7e347e63788819b92ee1cf2.jpg',
-          '/img/7fbadb86ee6d57f290034b02013dd8ba66f1de93.jpg',
-          '/img/8cc25a05e594004ab3c968f712c8f6d378cf133d.jpg',
-          '/img/10da19dcf8657dfc79937c55e14eda75e89f1cbd.jpg',
-          '/img/35f0141e865cdcc4267d1de78bef3693f305953e.jpg',
-          '/img/44a124e6fe618047c177f883622a35d3a95dec86A.jpg',
-          '/img/60fc821ebc28e202c992a141d007187272c1f143.jpg',
-          '/img/86e695418ffc5d733768fab1fa91d373a4f955e6.jpg',
-          '/img/90eb02c602f2560a825b2c6cf27953741b67b14c.jpg',
-          '/img/094cee15829bcf97dcb7b96ab1549d9974819419.jpg',
-          '/img/96a730d5234af311f1484511b97b7b4049dda1cd.jpg',
-          '/img/130d4ae592e1e19dfb0514a5b77807a52d00f2f1.jpg',
-          '/img/954a3b8cab5c88260e94d6ffb504f2c58338a029.jpg',
-          '/img/743652dbbf1ab19966da7eb3c7570d08cfc3ab8b.jpg',
-          '/img/9818718242f5681b4543560b553e0498684b53e2.jpg',
-          '/img/a300795d321358659972549afbbf80c7956a9120.jpg',
-          '/img/ab0d337b12b4c0482de3e63e821583a2baa8870f.jpg',
-          '/img/ba79609cb94525e0d9a98d68016efba13c89dac8.jpg',
-          '/img/c9df17c8040f21776c108365ff9f61098302aa63.jpg'
-        ],
+        items: [ '/img/001db7326e638032470a02813c9e47191ef74b0e.jpg', '/img/4f20f1e63339d99efaa9f67bae5c268b80eebbb4.jpg', '/img/5aa85fb6f20a17f629302687710142328a707d4d.jpg', '/img/7acbc19afbd43541f7e347e63788819b92ee1cf2.jpg', '/img/7fbadb86ee6d57f290034b02013dd8ba66f1de93.jpg', '/img/8cc25a05e594004ab3c968f712c8f6d378cf133d.jpg', '/img/10da19dcf8657dfc79937c55e14eda75e89f1cbd.jpg', '/img/35f0141e865cdcc4267d1de78bef3693f305953e.jpg', '/img/44a124e6fe618047c177f883622a35d3a95dec86A.jpg', '/img/60fc821ebc28e202c992a141d007187272c1f143.jpg', '/img/86e695418ffc5d733768fab1fa91d373a4f955e6.jpg', '/img/90eb02c602f2560a825b2c6cf27953741b67b14c.jpg', '/img/094cee15829bcf97dcb7b96ab1549d9974819419.jpg', '/img/96a730d5234af311f1484511b97b7b4049dda1cd.jpg', '/img/130d4ae592e1e19dfb0514a5b77807a52d00f2f1.jpg', '/img/954a3b8cab5c88260e94d6ffb504f2c58338a029.jpg', '/img/743652dbbf1ab19966da7eb3c7570d08cfc3ab8b.jpg', '/img/9818718242f5681b4543560b553e0498684b53e2.jpg', '/img/a300795d321358659972549afbbf80c7956a9120.jpg', '/img/ab0d337b12b4c0482de3e63e821583a2baa8870f.jpg', '/img/ba79609cb94525e0d9a98d68016efba13c89dac8.jpg', '/img/c9df17c8040f21776c108365ff9f61098302aa63.jpg' ],
         index: null
       }
     }
@@ -367,7 +352,10 @@ export default {
   methods: {
     addGuest () {
       this.guests.push({
-        name: ''
+        agenda: this.visitor.agenda,
+        grupo: this.visitor.grupo,
+        nome: '',
+        visitante: true
       })
     },
     removeGuest (index) {
@@ -412,18 +400,27 @@ export default {
         this.schedules = schedules
       }
       if (this.currentStep === 3) {
-        this.visitor.schedule = params.horario
+        this.visitor.agenda = params.horario
       }
     },
-    addSchedule () {
-      // console.log(this.visitor)
-      // console.log(this.guests)
-      // const visitor = await this.$axios.$post('/agendas', this.visitor, this.guests)
-        // .then((Response) => {})
-        // .catch((err) => {
-        //   this.errors.push(err)
-        // })
-      // console.log(visitor)
+    async addSchedule () {
+      this.submitSchedule.loading = true
+
+      const payload = {
+        data: [ { ...this.visitor }, ...this.guests ]
+      }
+
+      await this.$axios.$post('/agendamentos/create-many', payload)
+      .then(res => {
+        this.submitSchedule.loading = false
+        if (res.data.attributes.success) {
+          this.submitSchedule.success = true
+          return 'success'
+        } else {
+          this.submitSchedule.success = false
+          return 'error'
+        }
+      })
     },
     filteredItems(column, columns, element) {
       const total = element.length
