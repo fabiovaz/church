@@ -384,6 +384,7 @@ export default {
       if (this.currentStep === 2) {
         const qs = require('qs')
         const query = qs.stringify({
+          sort: ['horario:asc'],
           filters: {
             horario: {
               $containsi: params.horario,
