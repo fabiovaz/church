@@ -222,10 +222,10 @@
               <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
             </div>
             <div class="col-md-6">
-              <CardSchedule :date="'2022-02-22'" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />
-              <CardSchedule :date="'2022-02-23'" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-02-23' })" />
-              <CardSchedule :date="'2022-03-24'" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />
-              <CardSchedule :date="'2022-03-25'" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />
+              <CardSchedule :date="'2022-02-22'" :total-spots="1400" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />
+              <CardSchedule :date="'2022-02-23'" :total-spots="1400" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-02-23' })" />
+              <CardSchedule :date="'2022-03-24'" :total-spots="1400" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />
+              <CardSchedule :date="'2022-03-25'" :total-spots="1400" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />
             </div>
           </div>
         </div>
@@ -235,7 +235,8 @@
               <CardSchedule
                 v-for="(schedule, index) in filteredItems(1, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
-                :spots="60 - schedule.attributes.contador"
+                :total-spots="5"
+                :spots="schedule.attributes.contador"
                 @click.native="fetchSchedule(3, { horario: schedule.id })"
               />
             </div>
@@ -243,7 +244,8 @@
               <CardSchedule
                 v-for="(schedule, index) in filteredItems(2, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
-                :spots="60 - schedule.attributes.contador"
+                :total-spots="5"
+                :spots="schedule.attributes.contador"
                 @click.native="fetchSchedule(3, { horario: schedule.id })"
               />
             </div>
@@ -251,7 +253,8 @@
               <CardSchedule
                 v-for="(schedule, index) in filteredItems(3, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
-                :spots="60 - schedule.attributes.contador"
+                :total-spots="5"
+                :spots="schedule.attributes.contador"
                 @click.native="fetchSchedule(3, { horario: schedule.id })"
               />
             </div>

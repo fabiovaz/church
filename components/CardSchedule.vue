@@ -1,5 +1,8 @@
 <template>
-  <div class="card-schedule">
+  <div
+    class="card-schedule"
+    :class="{ disabled: totalSpots === spots }"
+  >
     <div class="date">
       <div class="date__weekday">
         {{ $dayjs(date).format('ddd') }}
@@ -18,7 +21,12 @@
         {{ $dayjs(date).format('HH:mm') }}
       </div>
       <div class="body__description">
-        <strong>{{ spots }}</strong> vagas disponiveis
+        <span v-if="totalSpots === spots">
+          Não há vagas disponiveis
+        </span>
+        <span v-if="totalSpots > spots">
+          <strong>{{ totalSpots - spots }}</strong> vagas disponiveis
+        </span>
       </div>
     </div>
     <div class="action">
@@ -35,6 +43,10 @@ export default {
   props: {
     date: {
       type: String,
+      default: null
+    },
+    totalSpots: {
+      type: Number,
       default: null
     },
     spots: {
@@ -87,6 +99,10 @@ export default {
     }
     &:hover {
       background: #F9F9F9;
+    }
+    &.disabled {
+      pointer-events: none;
+      opacity: .3;
     }
   }
 </style>
