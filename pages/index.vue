@@ -235,27 +235,27 @@
               <CardSchedule
                 v-for="(schedule, index) in filteredItems(1, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
-                :total-spots="5"
+                :total-spots="scheduleLimit.spots"
                 :spots="schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.id })"
+                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
               />
             </div>
             <div class="col-md-3">
               <CardSchedule
                 v-for="(schedule, index) in filteredItems(2, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
-                :total-spots="5"
+                :total-spots="scheduleLimit.spots"
                 :spots="schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.id })"
+                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
               />
             </div>
             <div class="col-md-3">
               <CardSchedule
                 v-for="(schedule, index) in filteredItems(3, 3, schedules)" :key="index"
                 :date="schedule.attributes.horario"
-                :total-spots="5"
+                :total-spots="scheduleLimit.spots"
                 :spots="schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.id })"
+                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
               />
             </div>
           </div>
@@ -295,11 +295,16 @@
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center">
-                  <button type="button" class="btn add" @click="addGuest">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.99984 8.00008H2.6665M7.99984 13.3334V8.00008V13.3334ZM7.99984 8.00008V2.66675V8.00008ZM7.99984 8.00008H13.3332H7.99984Z" stroke="#003058" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    Adicionar convidado
+                  <button type="button" class="btn add" :class="{ disabled: scheduleLimit.guests < 2 }" @click="addGuest">
+                    <span v-if="scheduleLimit.guests >= 2">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.99984 8.00008H2.6665M7.99984 13.3334V8.00008V13.3334ZM7.99984 8.00008V2.66675V8.00008ZM7.99984 8.00008H13.3332H7.99984Z" stroke="#003058" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                      Adicionar convidado
+                    </span>
+                    <span v-if="scheduleLimit.guests < 2">
+                      Vagas esgotadas
+                    </span>
                   </button>
                   <button type="submit" class="btn submit">Agendar</button>
                 </div>
@@ -335,6 +340,10 @@ export default {
     return {
       currentStep: 1,
       schedules: [],
+      scheduleLimit: {
+        spots: 5,
+        guests: null
+      },
       visitor: {
         agenda: null,
         nome: null,
@@ -365,9 +374,11 @@ export default {
         nome: '',
         visitante: true
       })
+      this.scheduleLimit.guests--
     },
     removeGuest (index) {
       this.guests.splice(index, 1)
+      this.scheduleLimit.guests++
     },
     async fetchSchedule (step, params) {
       switch (step) {
@@ -409,6 +420,7 @@ export default {
         this.schedules = schedules
       }
       if (this.currentStep === 3) {
+        this.scheduleLimit.guests = (this.scheduleLimit.spots - params.vagas)
         this.visitor.agenda = params.horario
       }
     },
