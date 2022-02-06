@@ -300,6 +300,10 @@
                   </button>
                   <button type="submit" class="btn submit">Agendar</button>
                 </div>
+                <div v-show="submitSchedule.error" class="error mt-3 color-red">
+                  <span>Algo estranho aconteceu:</span>
+                  <span>{{ submitSchedule.error }}</span>
+                </div>
               </form>
             </div>
             <div v-if="submitSchedule.success" class="col-md-6 text-center">
@@ -338,6 +342,7 @@ export default {
       guests: [],
       submitSchedule: {
         loading: false,
+        error: null,
         success: null
       },
       gallery: {
@@ -412,16 +417,17 @@ export default {
       }
 
       await this.$axios.$post('/agendamentos/create-many', payload)
-      .then(res => {
-        this.submitSchedule.loading = false
-        if (res.data.attributes.success) {
+        .then((response) => {
+          // Success
+          this.submitSchedule.loading = false
           this.submitSchedule.success = true
-          return 'success'
-        } else {
-          this.submitSchedule.success = false
-          return 'error'
-        }
-      })
+        })
+        .catch((error) => {
+          // Error
+          if (error.response) {
+            this.submitSchedule.error = error.response.data.error.message
+          }
+        })
     },
     filteredItems(column, columns, element) {
       const total = element.length
@@ -542,6 +548,10 @@ main {
           color: #FFF;
           background: #003058;
         }
+      }
+      .error {
+        font-size: 14px;
+        color: red;
       }
     }
   }
