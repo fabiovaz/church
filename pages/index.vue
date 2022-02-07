@@ -92,7 +92,7 @@
       </div>
     </div>
 
-    <div class="agenda">
+    <div ref="agenda" class="agenda">
       <div class="container">
         <div class="row">
           <div class="col text-center">
@@ -374,6 +374,12 @@ export default {
     this.fetchSchedule(1, null)
   },
   methods: {
+    goto (refName) {
+      const element = this.$refs[refName]
+      const top = element.offsetTop - 120
+
+      window.scrollTo(0, top)
+    },
     addGuest () {
       this.guests.push({
         agenda: this.visitor.agenda,
@@ -406,6 +412,7 @@ export default {
           break
         default:
       }
+
       if (this.currentStep === 1) {
         const { data: schedulesGrouped } = await this.$axios.$get(`/agendas/agrupado`)
         this.schedules = schedulesGrouped
@@ -433,6 +440,7 @@ export default {
       if (this.currentStep === 3) {
         this.scheduleLimit.guests = (this.scheduleLimit.spots - params.vagas)
         this.visitor.agenda = params.horario
+        this.goto('agenda')
       }
     },
     async addSchedule () {
