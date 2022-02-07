@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="cover">
+    <div id="templos" class="cover">
       <img class="background" src="~/assets/img/cover.jpg" />
       <div class="container">
         <div class="row justify-content-center">
@@ -31,10 +31,11 @@
       </div>
     </div>
 
-    <div class="construcao">
+    <div id="galeria" class="construcao">
       <CoolLightBox
         :items="gallery.items"
         :index="gallery.index"
+        :effect="'fade'"
         @close="gallery.index = null">
       </CoolLightBox>
 
@@ -92,7 +93,7 @@
       </div>
     </div>
 
-    <div ref="agenda" class="agenda">
+    <div id="agendar" ref="agenda" class="agenda">
       <div class="container">
         <div class="row">
           <div class="col text-center">
@@ -233,7 +234,7 @@
       </div>
     </div>
 
-    <div class="faq">
+    <div id="faq" class="faq">
       <div class="container">
         <div class="row">
           <div class="col text-center">
@@ -496,7 +497,7 @@ main {
   }
 
   .cover {
-    padding: 50px 0;
+    padding: 50px 0 0;
     .background {
       z-index: -1;
       position: absolute;
@@ -529,7 +530,7 @@ main {
   }
 
   .construcao {
-    padding: 50px 0;
+    padding: 100px 0 0;
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill,minmax(290px,1fr));
@@ -539,7 +540,7 @@ main {
   }
 
   .lideranca {
-    padding: 50px 0;
+    padding: 100px 0 0;
     .carousel-card {
       margin: 60px 20px;
       padding: 50px;
@@ -551,15 +552,15 @@ main {
   }
 
   .faq {
-    padding: 50px 0;
+    padding: 100px 0 0;
   }
 
   .localizacao {
-    padding: 50px 0;
+    padding: 100px 0 0;
   }
 
   .agenda {
-    padding: 50px 0;
+    padding: 100px 0 0;
     form {
       .guests {
         .form-control {

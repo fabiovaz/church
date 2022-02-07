@@ -16,22 +16,22 @@
                 </a>
               </li>
               <li class="d-none d-lg-block">
-                <a href="#">
+                <a href="#templos">
                   Os Templos
                 </a>
               </li>
               <li class="d-none d-lg-block">
-                <a href="#">
+                <a href="#galeria">
                   Galeria de Fotos
                 </a>
               </li>
               <li class="d-none d-lg-block">
-                <a href="#">
+                <a href="#faq">
                   Perguntas Frequentes
                 </a>
               </li>
               <li>
-                <a href="#" class="button text-center">
+                <a href="#agendar" class="button text-center">
                   AGENDAR VISITA
                 </a>
               </li>
@@ -83,6 +83,9 @@ export default {
             display: block;
             color: #FFF;
             text-decoration: none;
+            &:hover {
+              color: #0068bf;
+            }
             img {
               width: 190px;
               transition: all .3s;
