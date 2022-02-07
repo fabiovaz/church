@@ -83,9 +83,133 @@
             <div class="row mt-5 order-lg-1">
               <div class="col">
                 <div class="ratio ratio-21x9">
-                  <iframe src="https://www.youtube.com/embed/Z0gpwau8F3w?rel=0" title="YouTube video" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/c5JW7QwnjoY?rel=0" title="YouTube video" allowfullscreen></iframe>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="agenda">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <h2>Agendar Visita</h2>
+          </div>
+        </div>
+
+        <div v-if="currentStep === 1" class="step1">
+          <div class="row">
+            <div class="col-md-6">
+              <p>O Templo do Rio de Janeiro, de A Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visita completa, selecione a data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
+              <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
+            </div>
+            <div class="col-md-6">
+              <CardSchedule
+                v-for="(schedule, index) in schedules" :key="index"
+                :date="schedule.attributes.horario.substring(0, 10)"
+                :total-spots="(scheduleLimit.spots * 49)"
+                :spots="schedule.attributes.contador + schedule.attributes.agrupador"
+                @click.native="fetchSchedule(2, { horario: schedule.attributes.horario.substring(0, 10) })"
+              />
+              <!--              <CardSchedule :date="'2022-02-22'" :total-spots="1400" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />-->
+              <!--              <CardSchedule :date="'2022-02-23'" :total-spots="1400" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-02-23' })" />-->
+              <!--              <CardSchedule :date="'2022-03-24'" :total-spots="1400" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />-->
+              <!--              <CardSchedule :date="'2022-03-25'" :total-spots="1400" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />-->
+            </div>
+          </div>
+        </div>
+        <div v-if="currentStep === 2" class="step2">
+          <div class="row justify-content-around">
+            <div class="col-md-3">
+              <CardSchedule
+                v-for="(schedule, index) in filteredItems(1, 3, schedules)" :key="index"
+                :date="schedule.attributes.horario"
+                :total-spots="scheduleLimit.spots"
+                :spots="schedule.attributes.contador"
+                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
+              />
+            </div>
+            <div class="col-md-3">
+              <CardSchedule
+                v-for="(schedule, index) in filteredItems(2, 3, schedules)" :key="index"
+                :date="schedule.attributes.horario"
+                :total-spots="scheduleLimit.spots"
+                :spots="schedule.attributes.contador"
+                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
+              />
+            </div>
+            <div class="col-md-3">
+              <CardSchedule
+                v-for="(schedule, index) in filteredItems(3, 3, schedules)" :key="index"
+                :date="schedule.attributes.horario"
+                :total-spots="scheduleLimit.spots"
+                :spots="schedule.attributes.contador"
+                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
+              />
+            </div>
+          </div>
+        </div>
+        <div v-if="currentStep === 3" class="step3">
+          <div class="row justify-content-center">
+            <div v-if="!submitSchedule.success" class="col-md-4">
+              <p>Por favor preencha os dados para completar a requisição.</p>
+              <form @submit.prevent="addSchedule">
+                <input v-model="visitor.agenda" type="hidden" class="form-control">
+                <input v-model="visitor.grupo" type="hidden" class="form-control">
+                <div class="mb-3">
+                  <label for="inputName" class="form-label">Seu nome</label>
+                  <input id="inputName" v-model="visitor.nome" type="text" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label for="inputEmail" class="form-label">Seu e-mail</label>
+                  <input id="inputEmail" v-model="visitor.email" type="email" class="form-control" required>
+                </div>
+                <div class="mb-5">
+                  <label for="inputTelephone" class="form-label">Seu telefone</label>
+                  <input id="inputTelephone" v-model="visitor.telefone" type="telephone" class="form-control" required>
+                </div>
+
+                <div class="guests">
+                  <div v-for="(guest, index) in guests" :key="index">
+                    <div class="mb-3">
+                      <label class="form-label">Nome do convidado</label>
+                      <div class="position-relative">
+                        <input v-model="guest.nome"  type="text" class="form-control" required>
+                        <button type="button" class="btn remove" @click="removeGuest(index)">
+                          &times;
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn add" :class="{ disabled: scheduleLimit.guests < 2 }" @click="addGuest">
+                    <span v-if="scheduleLimit.guests >= 2">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.99984 8.00008H2.6665M7.99984 13.3334V8.00008V13.3334ZM7.99984 8.00008V2.66675V8.00008ZM7.99984 8.00008H13.3332H7.99984Z" stroke="#003058" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                      Adicionar convidado
+                    </span>
+                    <span v-if="scheduleLimit.guests < 2">
+                      Vagas esgotadas
+                    </span>
+                  </button>
+                  <button type="submit" class="btn submit">Agendar</button>
+                </div>
+                <div v-show="submitSchedule.error" class="error mt-3 color-red">
+                  <span>Algo estranho aconteceu:</span>
+                  <span>{{ submitSchedule.error }}</span>
+                </div>
+              </form>
+            </div>
+            <div v-if="submitSchedule.success" class="col-md-6 text-center">
+              <p>Sua visita ao Templo do Rio foi agendada com sucesso.</p>
+              <p>Você irá receber um E-mail com a confirmação da sua reserva.</p>
+              <p>Em caso de dúvidas ou alterações, entrar em contato com: (11) 97651-9201</p>
             </div>
           </div>
         </div>
@@ -202,130 +326,6 @@
                 </template>
               </accordion-item>
             </accordion>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="agenda">
-      <div class="container">
-        <div class="row">
-          <div class="col text-center">
-            <h2>Agendar Visita</h2>
-          </div>
-        </div>
-
-        <div v-if="currentStep === 1" class="step1">
-          <div class="row">
-            <div class="col-md-6">
-              <p>O Templo do Rio de Janeiro, de A Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visita completa, selecione a data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
-              <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
-            </div>
-            <div class="col-md-6">
-              <CardSchedule
-                v-for="(schedule, index) in schedules" :key="index"
-                :date="schedule.attributes.horario.substring(0, 10)"
-                :total-spots="(scheduleLimit.spots * 49)"
-                :spots="schedule.attributes.contador + schedule.attributes.agrupador"
-                @click.native="fetchSchedule(2, { horario: schedule.attributes.horario.substring(0, 10) })"
-              />
-<!--              <CardSchedule :date="'2022-02-22'" :total-spots="1400" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />-->
-<!--              <CardSchedule :date="'2022-02-23'" :total-spots="1400" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-02-23' })" />-->
-<!--              <CardSchedule :date="'2022-03-24'" :total-spots="1400" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />-->
-<!--              <CardSchedule :date="'2022-03-25'" :total-spots="1400" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />-->
-            </div>
-          </div>
-        </div>
-        <div v-if="currentStep === 2" class="step2">
-          <div class="row justify-content-around">
-            <div class="col-md-3">
-              <CardSchedule
-                v-for="(schedule, index) in filteredItems(1, 3, schedules)" :key="index"
-                :date="schedule.attributes.horario"
-                :total-spots="scheduleLimit.spots"
-                :spots="schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
-              />
-            </div>
-            <div class="col-md-3">
-              <CardSchedule
-                v-for="(schedule, index) in filteredItems(2, 3, schedules)" :key="index"
-                :date="schedule.attributes.horario"
-                :total-spots="scheduleLimit.spots"
-                :spots="schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
-              />
-            </div>
-            <div class="col-md-3">
-              <CardSchedule
-                v-for="(schedule, index) in filteredItems(3, 3, schedules)" :key="index"
-                :date="schedule.attributes.horario"
-                :total-spots="scheduleLimit.spots"
-                :spots="schedule.attributes.contador"
-                @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
-              />
-            </div>
-          </div>
-        </div>
-        <div v-if="currentStep === 3" class="step3">
-          <div class="row justify-content-center">
-            <div v-if="!submitSchedule.success" class="col-md-4">
-              <p>Por favor preencha os dados para completar a requisição.</p>
-              <form @submit.prevent="addSchedule">
-                <input v-model="visitor.agenda" type="hidden" class="form-control">
-                <input v-model="visitor.grupo" type="hidden" class="form-control">
-                <div class="mb-3">
-                  <label for="inputName" class="form-label">Seu nome</label>
-                  <input id="inputName" v-model="visitor.nome" type="text" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                  <label for="inputEmail" class="form-label">Seu e-mail</label>
-                  <input id="inputEmail" v-model="visitor.email" type="email" class="form-control" required>
-                </div>
-                <div class="mb-5">
-                  <label for="inputTelephone" class="form-label">Seu telefone</label>
-                  <input id="inputTelephone" v-model="visitor.telefone" type="telephone" class="form-control" required>
-                </div>
-
-                <div class="guests">
-                  <div v-for="(guest, index) in guests" :key="index">
-                    <div class="mb-3">
-                      <label class="form-label">Nome do convidado</label>
-                      <div class="position-relative">
-                        <input v-model="guest.nome"  type="text" class="form-control" required>
-                        <button type="button" class="btn remove" @click="removeGuest(index)">
-                          &times;
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center">
-                  <button type="button" class="btn add" :class="{ disabled: scheduleLimit.guests < 2 }" @click="addGuest">
-                    <span v-if="scheduleLimit.guests >= 2">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.99984 8.00008H2.6665M7.99984 13.3334V8.00008V13.3334ZM7.99984 8.00008V2.66675V8.00008ZM7.99984 8.00008H13.3332H7.99984Z" stroke="#003058" stroke-width="2" stroke-linecap="round"/>
-                      </svg>
-                      Adicionar convidado
-                    </span>
-                    <span v-if="scheduleLimit.guests < 2">
-                      Vagas esgotadas
-                    </span>
-                  </button>
-                  <button type="submit" class="btn submit">Agendar</button>
-                </div>
-                <div v-show="submitSchedule.error" class="error mt-3 color-red">
-                  <span>Algo estranho aconteceu:</span>
-                  <span>{{ submitSchedule.error }}</span>
-                </div>
-              </form>
-            </div>
-            <div v-if="submitSchedule.success" class="col-md-6 text-center">
-              <p>Sua visita ao Templo do Rio foi agendada com sucesso.</p>
-              <p>Você irá receber um E-mail com a confirmação da sua reserva.</p>
-              <p>Em caso de dúvidas ou alterações, entrar em contato com: (11) 97651-9201</p>
-            </div>
           </div>
         </div>
       </div>
