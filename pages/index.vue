@@ -83,7 +83,7 @@
             </div>
             <div class="row mt-5 order-lg-1">
               <div class="col">
-                <div class="ratio ratio-21x9">
+                <div class="ratio ratio-16x9">
                   <iframe src="https://www.youtube.com/embed/c5JW7QwnjoY?rel=0" title="YouTube video" allowfullscreen></iframe>
                 </div>
               </div>
@@ -226,7 +226,7 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-9">
-            <div class="ratio ratio-16x9">
+            <div class="ratio ratio-21x9">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.624248451831!2d-43.40154844868762!3d-23.000840884890298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bdb82ff03a8d9%3A0x7444b2c941960bd3!2sAv.%20das%20Am%C3%A9ricas%2C%209005%20-%20Barra%20da%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022793-081!5e0!3m2!1spt-BR!2sbr!4v1644079937541!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
