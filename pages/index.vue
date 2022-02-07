@@ -222,10 +222,17 @@
               <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
             </div>
             <div class="col-md-6">
-              <CardSchedule :date="'2022-02-22'" :total-spots="1400" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />
-              <CardSchedule :date="'2022-02-23'" :total-spots="1400" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-02-23' })" />
-              <CardSchedule :date="'2022-03-24'" :total-spots="1400" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />
-              <CardSchedule :date="'2022-03-25'" :total-spots="1400" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />
+              <CardSchedule
+                v-for="(schedule, index) in schedules" :key="index"
+                :date="schedule.attributes.horario.substring(0, 10)"
+                :total-spots="(scheduleLimit.spots * 49)"
+                :spots="schedule.attributes.contador + schedule.attributes.agrupador"
+                @click.native="fetchSchedule(2, { horario: schedule.attributes.horario.substring(0, 10) })"
+              />
+<!--              <CardSchedule :date="'2022-02-22'" :total-spots="1400" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />-->
+<!--              <CardSchedule :date="'2022-02-23'" :total-spots="1400" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-02-23' })" />-->
+<!--              <CardSchedule :date="'2022-03-24'" :total-spots="1400" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />-->
+<!--              <CardSchedule :date="'2022-03-25'" :total-spots="1400" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />-->
             </div>
           </div>
         </div>
@@ -341,7 +348,7 @@ export default {
       currentStep: 1,
       schedules: [],
       scheduleLimit: {
-        spots: 5,
+        spots: 60,
         guests: null
       },
       visitor: {
@@ -364,7 +371,7 @@ export default {
     }
   },
   created () {
-    // this.fetchSchedule(1, null)
+    this.fetchSchedule(1, null)
   },
   methods: {
     addGuest () {
@@ -398,6 +405,10 @@ export default {
           this.currentStep--
           break
         default:
+      }
+      if (this.currentStep === 1) {
+        const { data: schedulesGrouped } = await this.$axios.$get(`/agendas/agrupado`)
+        this.schedules = schedulesGrouped
       }
 
       if (this.currentStep === 2) {
