@@ -207,7 +207,8 @@
                 </div>
               </form>
             </div>
-            <div v-if="submitSchedule.success" class="col-md-6 text-center">
+            <div v-if="submitSchedule.success" class="col-md-6 py-5 text-center" style="background: #f8fcff">
+              <h3 class="fw-bold mb-4">Agendamento foi concluido com sucesso!</h3>
               <p>Sua visita ao Templo do Rio foi agendada com sucesso.</p>
               <p>Você irá receber um E-mail com a confirmação da sua reserva.</p>
               <p>Em caso de dúvidas ou alterações, entrar em contato com: (11) 97651-9201</p>
