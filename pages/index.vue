@@ -552,7 +552,7 @@ main {
   }
 
   .faq {
-    padding: 100px 0 0;
+    padding: 100px 0;
   }
 
   .localizacao {
