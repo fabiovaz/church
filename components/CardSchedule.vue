@@ -20,11 +20,11 @@
       <div v-if="$dayjs(date).format('HH') != '00'" class="body__title">
         {{ $dayjs(date).format('HH:mm') }}
       </div>
-      <div class="body__description">
+      <div v-if="totalSpots" class="body__description">
         <span v-if="totalSpots === spots">
           Não há vagas disponiveis
         </span>
-        <span v-if="totalSpots > spots">
+        <span v-if="(totalSpots - spots) < 6">
           <strong>{{ totalSpots - spots }}</strong> vagas disponiveis
         </span>
       </div>

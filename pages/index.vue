@@ -102,23 +102,22 @@
         </div>
 
         <div v-if="currentStep === 1" class="step1">
-          <div class="row">
-            <div class="col-md-6">
-              <p>O Templo do Rio de Janeiro, de A Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visita completa, selecione a data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
-              <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
-            </div>
-            <div class="col-md-6">
-              <CardSchedule
-                v-for="(schedule, index) in schedules" :key="index"
-                :date="schedule.attributes.horario.substring(0, 10)"
-                :total-spots="(scheduleLimit.spots * 49)"
-                :spots="schedule.attributes.contador + schedule.attributes.agrupador"
-                @click.native="fetchSchedule(2, { horario: schedule.attributes.horario.substring(0, 10) })"
-              />
-              <!--              <CardSchedule :date="'2022-02-22'" :total-spots="1400" :spots="722" @click.native="fetchSchedule(2, { horario: '2022-02-22' })" />-->
-              <!--              <CardSchedule :date="'2022-02-23'" :total-spots="1400" :spots="213" @click.native="fetchSchedule(2, { horario: '2022-02-23' })" />-->
-              <!--              <CardSchedule :date="'2022-03-24'" :total-spots="1400" :spots="1400" @click.native="fetchSchedule(2, { horario: '2022-03-24' })" />-->
-              <!--              <CardSchedule :date="'2022-03-25'" :total-spots="1400" :spots="982" @click.native="fetchSchedule(2, { horario: '2022-03-25' })" />-->
+          <div class="row justify-content-center">
+            <div class="col col-md-6">
+              <div class="row">
+                <div class="col-md-7">
+                  <p>O Templo do Rio de Janeiro, de A Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visita completa, selecione a data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
+                  <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
+                </div>
+                <div class="col-md-5">
+                  <CardSchedule
+                    v-for="(schedule, index) in schedules" :key="index"
+                    :date="schedule.attributes.horario.substring(0, 10)"
+                    :spots="schedule.attributes.contador + schedule.attributes.agrupador"
+                    @click.native="fetchSchedule(2, { horario: schedule.attributes.horario.substring(0, 10) })"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -170,7 +169,7 @@
                 </div>
                 <div class="mb-5">
                   <label for="inputTelephone" class="form-label">Seu telefone</label>
-                  <input id="inputTelephone" v-model="visitor.telefone" type="telephone" class="form-control" required>
+                  <input id="inputTelephone" v-model="visitor.telefone" v-mask="['(##) ####-####', '(##) #####-####']" type="telephone" class="form-control" required>
                 </div>
 
                 <div class="guests">
@@ -339,9 +338,14 @@
 <script>
 import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+import { mask } from 'vue-the-mask'
+
 
 export default {
   name: 'IndexPage',
+  directives: {
+    mask
+  },
   components: {
     CoolLightBox
   },
