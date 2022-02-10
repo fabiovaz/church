@@ -7,7 +7,7 @@
           <div class="col col-md-10">
             <div class="caption text-center">
               <h6 class="text-uppercase">Bem-vindo ao Templo do Rio de Janeiro</h6>
-              <h1>Você é nosso convidado especial para uma visita prévia.</h1>
+              <h1>Você é nosso convidado para uma visita especial</h1>
             </div>
           </div>
         </div>
