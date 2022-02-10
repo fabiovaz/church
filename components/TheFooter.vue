@@ -2,42 +2,50 @@
   <footer>
     <div class="header">
       <div class="container">
-        <div class="row">
-        <div class="col text-center">
-          <ul>
-            <li>
-              <a href="#">
-                Vinde a Cristo
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Saiba mais sobre os Templos
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Nossas Crenças
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Converse com os Missionários
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Site da Igreja em Português
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Sala de Imprensa
-              </a>
-            </li>
-          </ul>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="row align-items-center">
+              <div class="col text-center">
+                <img src="/img/logo.png">
+              </div>
+              <div class="col">
+                <h2>Links</h2>
+                <ul>
+                  <li>
+                    <a href="#">
+                      Vinde a Cristo
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Saiba mais sobre os Templos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Nossas Crenças
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Converse com os Missionários
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Site da Igreja em Português
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Sala de Imprensa
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
     <div class="container">
@@ -54,24 +62,29 @@
 footer {
   color: #FFF;
   background: #003058;
+  h2 {
+    font-family: 'Playfair Display', serif;
+  }
   h6 {
     padding: 10px 0;
     margin: 0;
   }
   .header {
+    padding: 50px 0;
     background: #003c6e;
     ul {
       margin: 0;
       padding: 15px 0;
+      font-size: 14px;
       list-style: none;
       li {
-        display: inline-block;
-        padding: 0 5px;
+        padding: 8px 0;
         a {
           text-decoration: none;
           color: #FFF;
           &:hover {
             color: #86a5bf;
+            text-decoration: underline;
           }
         }
       }
