@@ -167,7 +167,7 @@
                   <label for="inputEmail" class="form-label">Seu e-mail</label>
                   <input id="inputEmail" v-model="visitor.email" type="email" class="form-control" required>
                 </div>
-                <div class="mb-5">
+                <div class="mb-3">
                   <label for="inputTelephone" class="form-label">Seu telefone</label>
                   <input id="inputTelephone" v-model="visitor.telefone" v-mask="['(##) ####-####', '(##) #####-####']" type="text" class="form-control" required>
                 </div>
