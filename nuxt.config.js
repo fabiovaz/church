@@ -12,14 +12,14 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '22 a 25 de março de 2022. Agende a sua visita neste site.' },
       { name: 'format-detection', content: 'telephone=no' },
-      { property: 'image', content: "/templo.jpg" },
-      { property: 'og:image', content: "/templo.jpg" }
+      { hid: 'image', property: 'image', content: "https://www.templodorio.com.br/templo.jpg" },
+      { hid: 'og:image', property: 'og:image', content: "https://www.templodorio.com.br/templo.jpg" }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' }
     ]
-},
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
