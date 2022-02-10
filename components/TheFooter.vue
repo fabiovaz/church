@@ -12,32 +12,32 @@
                 <h2>Links</h2>
                 <ul>
                   <li>
-                    <a href="#">
+                    <a href="https://www.vindeacristo.org/?lang=por" target="_blank">
                       Vinde a Cristo
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://www.churchofjesuschrist.org/temples?lang=por" target="_blank">
                       Saiba mais sobre os Templos
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://www.vindeacristo.org/crencas" target="_blank">
                       Nossas Crenças
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://www.vindeacristo.org/formulario/visita-dos-missionarios" target="_blank">
                       Converse com os Missionários
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://www.churchofjesuschrist.org/?lang=por" target="_blank">
                       Site da Igreja em Português
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://noticias-br.aigrejadejesuscristo.org/" target="_blank">
                       Sala de Imprensa
                     </a>
                   </li>
