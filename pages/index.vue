@@ -129,6 +129,7 @@
                 :date="schedule.attributes.horario"
                 :total-spots="scheduleLimit.spots"
                 :spots="schedule.attributes.contador"
+                :blocked="schedule.attributes.bloqueado"
                 @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
               />
             </div>
@@ -138,6 +139,7 @@
                 :date="schedule.attributes.horario"
                 :total-spots="scheduleLimit.spots"
                 :spots="schedule.attributes.contador"
+                :blocked="schedule.attributes.bloqueado"
                 @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
               />
             </div>
@@ -147,6 +149,7 @@
                 :date="schedule.attributes.horario"
                 :total-spots="scheduleLimit.spots"
                 :spots="schedule.attributes.contador"
+                :blocked="schedule.attributes.bloqueado"
                 @click.native="fetchSchedule(3, { horario: schedule.id, vagas: schedule.attributes.contador })"
               />
             </div>

@@ -1,7 +1,7 @@
 <template>
   <div
     class="card-schedule"
-    :class="{ disabled: totalSpots === spots }"
+    :class="{ disabled: totalSpots === spots, disabled: blocked }"
   >
     <div class="date">
       <div class="date__weekday">
@@ -52,6 +52,10 @@ export default {
     spots: {
       type: Number,
       default: null
+    },
+    blocked: {
+      type: Boolean,
+      default: false
     }
   }
 }
