@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
           <div class="col-md-6">
             <div class="row align-items-center">
-              <div class="col text-center">
+              <div class="col-5 col-md-6 text-end pe-md-5">
                 <img src="/img/logo.png">
               </div>
-              <div class="col">
+              <div class="col-7 col-md-6 text-left ps-md-5">
                 <h2>Links</h2>
                 <ul>
                   <li>
