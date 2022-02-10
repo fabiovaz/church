@@ -169,7 +169,11 @@
                 </div>
                 <div class="mb-5">
                   <label for="inputTelephone" class="form-label">Seu telefone</label>
-                  <input id="inputTelephone" v-model="visitor.telefone" v-mask="['(##) ####-####', '(##) #####-####']" type="telephone" class="form-control" required>
+                  <input id="inputTelephone" v-model="visitor.telefone" v-mask="['(##) ####-####', '(##) #####-####']" type="text" class="form-control" required>
+                </div>
+                <div class="mb-5">
+                  <label for="inputCompany" class="form-label">Empresa/Instituição</label>
+                  <input id="inputCompany" v-model="visitor.empresa" type="text" class="form-control" required>
                 </div>
 
                 <div class="guests">
@@ -362,6 +366,7 @@ export default {
         nome: null,
         email: null,
         telefone: null,
+        empresa: null,
         grupo: Date.now()
       },
       guests: [],
