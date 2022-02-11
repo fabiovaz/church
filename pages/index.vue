@@ -1,7 +1,25 @@
 <template>
   <main>
     <div id="templos" class="cover">
-      <img class="background" src="~/assets/img/cover.jpg" />
+      <client-only>
+        <Flickity ref="flickity" :options="flickityOptions" class="background-carousel">
+          <div class="background">
+            <img src="~/assets/img/cover_1.jpg" />
+          </div>
+          <div class="background">
+            <img src="~/assets/img/cover_2.jpg" />
+          </div>
+          <div class="background">
+            <img src="~/assets/img/cover_3.jpg" />
+          </div>
+          <div class="background">
+            <img src="~/assets/img/cover_4.jpg" />
+          </div>
+          <div class="background">
+            <img src="~/assets/img/cover_5.jpg" />
+          </div>
+        </Flickity>
+      </client-only>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col col-md-10">
@@ -381,6 +399,14 @@ export default {
       gallery: {
         items: [ '/img/001db7326e638032470a02813c9e47191ef74b0e.jpg', '/img/4f20f1e63339d99efaa9f67bae5c268b80eebbb4.jpg', '/img/5aa85fb6f20a17f629302687710142328a707d4d.jpg', '/img/7acbc19afbd43541f7e347e63788819b92ee1cf2.jpg', '/img/7fbadb86ee6d57f290034b02013dd8ba66f1de93.jpg', '/img/8cc25a05e594004ab3c968f712c8f6d378cf133d.jpg', '/img/10da19dcf8657dfc79937c55e14eda75e89f1cbd.jpg', '/img/35f0141e865cdcc4267d1de78bef3693f305953e.jpg', '/img/44a124e6fe618047c177f883622a35d3a95dec86A.jpg', '/img/60fc821ebc28e202c992a141d007187272c1f143.jpg', '/img/86e695418ffc5d733768fab1fa91d373a4f955e6.jpg', '/img/90eb02c602f2560a825b2c6cf27953741b67b14c.jpg', '/img/094cee15829bcf97dcb7b96ab1549d9974819419.jpg', '/img/96a730d5234af311f1484511b97b7b4049dda1cd.jpg', '/img/130d4ae592e1e19dfb0514a5b77807a52d00f2f1.jpg', '/img/954a3b8cab5c88260e94d6ffb504f2c58338a029.jpg', '/img/743652dbbf1ab19966da7eb3c7570d08cfc3ab8b.jpg', '/img/9818718242f5681b4543560b553e0498684b53e2.jpg', '/img/a300795d321358659972549afbbf80c7956a9120.jpg', '/img/ab0d337b12b4c0482de3e63e821583a2baa8870f.jpg', '/img/ba79609cb94525e0d9a98d68016efba13c89dac8.jpg', '/img/c9df17c8040f21776c108365ff9f61098302aa63.jpg' ],
         index: null
+      },
+      flickityOptions: {
+        pageDots: false,
+        contain: true,
+        lazyLoad: 3,
+        autoPlay: true,
+        prevNextButtons: false,
+        cellSelector: '.background'
       }
     }
   },
@@ -510,15 +536,35 @@ main {
   }
 
   .cover {
-    padding: 50px 0 0;
-    .background {
+    .background-carousel {
       z-index: -1;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
-      object-fit: cover;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .2) 60%, rgba(0, 0, 0, 0) 100%);
+      }
+      .background {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        img {
+          width: 100%;
+          height: 100vh;
+          object-fit: cover;
+        }
+      }
     }
     .caption {
       margin-top: 30vh;
