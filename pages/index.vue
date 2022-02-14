@@ -38,9 +38,7 @@
                 </div>
               </div>
               <p>Os templos não são lugares comuns de adoração aos domingos para os membros de A Igreja de Jesus Cristo dos Santos dos Últimos Dias. Eles são bem diferentes de milhares de capelas ou edifícios comuns no mundo inteiro usados para as reuniões de domingo.</p>
-              <p>Qualquer pessoa, seja qual for sua religião, pode entrar numa capela da Igreja de Jesus Cristo e frequentar suas reuniões. No entanto, devido à natureza sagrada dos templos como “casas do Senhor”, apenas membros fiéis da Igreja têm permissão para entrar nos templos. O membro deve estar cumprindo os princípios básicos de fé e declarar o fato a seus líderes locais uma vez a cada dois anos para poder entrar no templo.</p>
               <p>Os templos dos santos dos últimos dias são considerados casas de Deus, um lugar de santidade e paz, separado das preocupações do mundo. Os templos fornecem um local onde os membros da Igreja fazem promessas solenes e assumem compromissos com Deus. Eles também são o local onde os mais sublimes sacramentos de fé ocorrem — o casamento de casais e o “selamento” de famílias para toda eternidade.</p>
-              <p>Os templos são o único local onde são realizadas cerimônias como o batismo e o casamento eterno em favor de pessoas falecidas — uma prática que os santos dos últimos dias acreditam que foi seguida na época do Novo Testamento, mas que mais tarde foi perdida.</p>
               <p>Os templos fazem com que os santos dos últimos dias se voltem para Jesus Cristo e tenham uma perspectiva de sua vida futura com Ele, com o Pai Celestial e com os membros de sua família sob a condição de fidelidade aos ensinamentos de Cristo.</p>
               <p>Há 167 templos no mundo, seja em funcionamento, em construção ou cujos projetos já foram anunciados.</p>
             </div>
@@ -578,7 +576,8 @@ main {
       }
     }
     .callout {
-      margin-top: 100px;
+      // margin-top: 100px;
+      margin-top: 25vh;
       padding: 60px 100px;
       background: #FFF;
       box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);
