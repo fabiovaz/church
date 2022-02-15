@@ -114,6 +114,7 @@
         <div class="row">
           <div class="col text-center">
             <h2>Agendar Visita</h2>
+            <h4 v-if="currentStep > 1 && !submitSchedule.success" class="mb-4" style="cursor: pointer" @click="currentStep--">Voltar</h4>
           </div>
         </div>
 
@@ -374,7 +375,7 @@ export default {
   },
   data () {
     return {
-      currentStep: 1,
+      currentStep: null,
       schedules: [],
       scheduleLimit: {
         spots: 60,
@@ -408,10 +409,55 @@ export default {
       }
     }
   },
+  watch: {
+    currentStep (nv) {
+      switch (nv) {
+        case 1:
+          window.location.hash = '';
+          break
+        case 2:
+          window.location.hash = 'hora';
+          break
+        case 3:
+          window.location.hash = 'formulario';
+          break
+      }
+    }
+  },
   created () {
     this.fetchSchedule(1, null)
   },
+  mounted () {
+    window.addEventListener('hashchange', () => this.hashChange(window.location.hash))
+  },
   methods: {
+    hashChange (hash) {
+      switch (hash) {
+        case '':
+          this.setStep(1)
+          this.fetchSchedule(1, null)
+          break
+        case '#hora':
+          this.setStep(2)
+          break
+        case '#formulario':
+          this.setStep(3)
+          break
+      }
+    },
+    setStep (step) {
+      switch (step) {
+        case 1:
+          this.currentStep = 1
+          break
+        case 2:
+          this.currentStep = 2
+          break
+        case 3:
+          this.currentStep = 3
+          break
+      }
+    },
     goto (refName) {
       const element = this.$refs[refName]
       const top = element.offsetTop - 120
@@ -432,24 +478,7 @@ export default {
       this.scheduleLimit.guests++
     },
     async fetchSchedule (step, params) {
-      switch (step) {
-        case 1:
-          this.currentStep = 1
-          break
-        case 2:
-          this.currentStep = 2
-          break
-        case 3:
-          this.currentStep = 3
-          break
-        case 'next':
-          this.currentStep++
-          break
-        case 'prev':
-          this.currentStep--
-          break
-        default:
-      }
+      this.setStep(step)
 
       if (this.currentStep === 1) {
         const { data: schedulesGrouped } = await this.$axios.$get(`/agendas/agrupado`)
