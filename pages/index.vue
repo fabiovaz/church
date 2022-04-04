@@ -129,8 +129,8 @@
             <div class="col col-md-6">
               <div class="row">
                 <div class="col-md-7">
-                  <p>O Templo do Rio de Janeiro, de A Igreja do Jesus Cristo dos Santos dos Últimos Dias está aberto para receber a todos. Para tornar sua visita completa, selecione a data e horário de sua preferência. Caso queira levar mais alguém, você terá essa opção.</p>
-                  <p>Caso não seja possível comparecer nas datas indicadas –  e tenha o desejo de visitar ao Templo entre o período de 26 de março e 30 de abril, entre em contato pelo email – <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
+                  <p>O Templo do Rio de Janeiro, de A Igreja do Jesus Cristo dos Santos dos Últimos Dias  está aberto para receber a todos.</p>
+                  <p>Caso não tenha sido possível comparecer entre os dias 22 a 25 de março e tenha o desejo de visitar o templo, entre em contato pelo e-mail <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
                 </div>
                 <div class="col-md-5">
                   <CardSchedule
