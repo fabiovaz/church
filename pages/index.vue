@@ -117,6 +117,12 @@
             <h4 v-if="currentStep > 1 && !submitSchedule.success" class="mb-4" style="cursor: pointer" @click="currentStep--">Voltar</h4>
           </div>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-md-7 text-center">
+            <p>O Templo do Rio de Janeiro, de A Igreja do Jesus Cristo dos Santos dos Últimos Dias  está aberto para receber a todos.</p>
+            <p>Caso não tenha sido possível comparecer entre os dias 22 a 25 de março e tenha o desejo de visitar o temlp, entre em contato pelo e-mail <a href="mailto:garciantj@churchofjesuschrist.org">garciantj@churchofjesuschrist.org</a></p>
+          </div>
+        </div>
 
         <div v-if="currentStep === 1" class="step1">
           <div class="row justify-content-center">
@@ -425,7 +431,7 @@ export default {
     }
   },
   created () {
-    this.fetchSchedule(1, null)
+    // this.fetchSchedule(1, null)
   },
   mounted () {
     window.addEventListener('hashchange', () => this.hashChange(window.location.hash))
